@@ -6,7 +6,7 @@ export function renderArtistModal(artist) {
 
   // Список жанрів (ul > li)
   const genresList = artist.genres && artist.genres.length
-    ? `<ul class="genres-list">${artist.genres.map(genre => `<li>${genre}</li>`).join('')}</ul>`
+    ? `<ul class="genres-list-details">${artist.genres.map(genre => `<li class="genres-item-details">${genre}</li>`).join('')}</ul>`
     : '<p>Genres not specified</p>';
 
   // Список альбомів з треками (ul > li)
@@ -25,8 +25,9 @@ export function renderArtistModal(artist) {
           const tracksList = album.tracks.map(track => {
             const youtubeIcon = track.youtube
               ? `<a href="${track.youtube}" target="_blank" rel="noopener noreferrer" aria-label="Перейти на YouTube: ${track.title}">
-                  <svg width="16" height="16" fill="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10 15l5-3-5-3v6z"/>
+                  <svg width="16" height="16">
+                    <use href="../img/symbol-defs.svg#icon-Youtube"></use>
+                  <path d="M10 15l5-3-5-3v6z"/>
                     <path d="M21.8 7.2s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15 4 12 4 12 4h0s-3 0-6 .3c-.8.1-1.6.6-2.1 1.4-.4.6-.5 1.4-.5 1.7-.1.5-.1 1.1-.1 1.7v1.8c0 .6 0 1.2.1 1.7 0 .3.1 1.1.5 1.7.5.8 1.3 1.3 2.1 1.4 1.5.1 6 .3 6 .3s3 0 6-.3c.7-.1 1.4-.6 1.9-1.4.6-.7.8-2 .8-2v-3.6z"/>
                   </svg>
                 </a>`
@@ -53,7 +54,7 @@ export function renderArtistModal(artist) {
     : '<p>There are no albums</p>';
 
   return `
-    <div class="modal">
+    <div class="modal ">
         <button class="close-modal-btn" type="button">
   <svg class="icon-close-btn" width="16" height="16">
     <use href="../img/symbol-defs.svg#icon-close-btn"></use>
@@ -75,7 +76,7 @@ export function renderArtistModal(artist) {
       </div>
 
       <div class="genres-div">
-        <h3 class="title-genre"></h3>
+        <h3></h3>
         ${genresList}
       </div>
 
