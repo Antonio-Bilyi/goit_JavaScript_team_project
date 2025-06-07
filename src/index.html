@@ -2,22 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content="Artists Hub." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Artists Hub</title>
+
+    <!-- NORMALIZED -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+    />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Epilogue:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLES -->
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <!-- HEADER AND BURGER MENU -->
+    <load src="./partials/header.html" />
+    <load src="./partials/burger-menu.html" />
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+      <!-- MAIN SECTIONS -->
+      <load src="./partials/hero-section.html" />
+      <load src="./partials/artists-section.html" />
+      <load src="./partials/artists-details.html" />
+      <load src="./partials/about-us-section.html" />
+      <load src="./partials/feedback-section.html" />
     </main>
 
+    <!-- FOOTER -->
     <load src="./partials/footer.html" />
 
+    <!-- JAVA SCRIPT -->
     <script type="module" src="./main.js"></script>
   </body>
 </html>
