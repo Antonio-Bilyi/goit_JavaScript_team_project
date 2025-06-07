@@ -12,3 +12,6 @@ export async function fetchArtistDetails(id) {
     throw error;
   }
 }
+
+
+

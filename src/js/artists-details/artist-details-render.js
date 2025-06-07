@@ -7,7 +7,7 @@ export function renderArtistModal(artist) {
   // Список жанрів (ul > li)
   const genresList = artist.genres && artist.genres.length
     ? `<ul class="genres-list">${artist.genres.map(genre => `<li>${genre}</li>`).join('')}</ul>`
-    : '<p>Жанри не вказані</p>';
+    : '<p>Genres not specified</p>';
 
   // Список альбомів з треками (ul > li)
   const albumsList = artist.albums && artist.albums.length
@@ -16,9 +16,9 @@ export function renderArtistModal(artist) {
           // Заголовки колонок треків
           const tracksHeader = `
             <li class="tracks-header">
-              <span>Назва композиції</span>
-              <span>Тривалість</span>
-              <span>Youtube</span>
+              <span>Track</span>
+              <span>Time</span>
+              <span>Link</span>
             </li>`;
 
           // Треки в album
@@ -50,25 +50,28 @@ export function renderArtistModal(artist) {
             </li>`;
         }).join('')}
       </ul>`
-    : '<p>Альбоми відсутні</p>';
+    : '<p>There are no albums</p>';
 
   return `
-    <div class="modal-content" tabindex="0">
-      <button class="close-modal-btn" aria-label="Закрити модальне вікно">&times;</button>
-
-      <h2 class="artist-name">${artist.name}</h2>
-      <img class="img-details" src="${artist.image}" alt="Фото ${artist.name}" />
+    <div class="modal">
+        <button class="close-modal-btn" type="button">
+  <svg class="icon-close-btn" width="16" height="16">
+    <use href="../img/symbol-defs.svg#icon-close-btn"></use>
+  </svg>
+</button>
+       <h2 class="artist-name">${artist.name}</h2>
+      <img class="img-details" src="${artist.image}" alt="Photo ${artist.name}" />
 
       <ul class="artist-info-list">
-        <li><strong>Роки існування:</strong> ${yearsExistence}</li>
-        <li><strong>Стать:</strong> ${artist.gender || 'Невідомо'}</li>
-        <li><strong>Кількість учасників:</strong> ${artist.membersCount || 'Невідомо'}</li>
-        <li><strong>Країна походження:</strong> ${artist.country || 'Невідомо'}</li>
+        <li><strong>Years active:</strong> ${yearsExistence}</li>
+        <li><strong>Sex:</strong> ${artist.gender || "Unknown"}</li>
+        <li><strong>Members:</strong> ${artist.membersCount || "Unknown"}</li>
+        <li><strong>Country:</strong> ${artist.country || "Unknown"}</li>
       </ul>
 
       <div class="biography-div">
         <h3 class="title-biography">Biography</h3>
-        <p class="text-biography">${artist.biography || 'Біографія відсутня'}</p>
+        <p class="text-biography">${artist.biography || "Biography missing"}</p>
       </div>
 
       <div class="genres-div">
@@ -83,3 +86,4 @@ export function renderArtistModal(artist) {
     </div>
   `;
 }
+

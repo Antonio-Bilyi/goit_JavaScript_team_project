@@ -1,9 +1,10 @@
 import { fetchArtistDetails } from './artist-details-api.js';
 import { renderArtistModal } from './artist-details-render.js';
 
-const modalOverlay = document.querySelector('.modal-overlay');
+document.addEventListener('DOMContentLoaded', () => {
+  const modalOverlay = document.querySelector('.modal-overlay');
 
-export async function openArtistModal(artistId) {
+async function openArtistModal(artistId) {
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
@@ -12,7 +13,7 @@ export async function openArtistModal(artistId) {
     document.body.classList.add('modal-open');
     addEventListeners();
   } catch (error) {
-    showToast('Не вдалося завантажити дані виконавця.');
+    showToast('Failed to load artist data.');
   } finally {
     hideLoader();
   }
@@ -46,7 +47,7 @@ function removeEventListeners() {
 }
 
 function showLoader() {
-  modalOverlay.innerHTML = `<div class="loader">Завантаження...</div>`;
+  modalOverlay.innerHTML = `<div class="loader">Loading...</div>`;
 }
 function hideLoader() {
   const loader = modalOverlay.querySelector('.loader');
@@ -55,3 +56,19 @@ function hideLoader() {
 function showToast(message) {
   alert(message); 
 }
+
+
+// тимчасово
+  const openBtn = document.getElementById('testOpenBtn');
+  const input = document.getElementById('artistIdInput');
+
+  openBtn?.addEventListener('click', () => {
+    const id = input?.value.trim();
+    if (id) {
+      openArtistModal(id);
+    } else {
+      alert('Enter the artist ID. For example: 64f389465ae26083f39b1798');
+    }
+  });
+});
+// тимчасово
