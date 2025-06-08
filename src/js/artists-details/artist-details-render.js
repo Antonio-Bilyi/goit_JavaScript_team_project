@@ -42,7 +42,7 @@ function loadArtists() {
       list.appendChild(li);
     });
 
-    // currentIndex += itemsPerPage;
+    currentIndex += itemsPerPage;
 
     if (currentIndex >= artists.length) {
       loadMoreBtn.style.display = "none";
