@@ -108,6 +108,40 @@
     inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 }
 
+.spinner-bars {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.spinner-bars::before,
+.spinner-bars::after {
+  content: '';
+  width: 8px;
+  height: 100%;
+  background: #764191;
+  animation: grow 1s infinite ease-in-out;
+}
+
+.spinner-bars::after {
+  animation-delay: 0.5s;
+}
+
+@keyframes grow {
+
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .art-section {
     /* padding-top: 64px;
