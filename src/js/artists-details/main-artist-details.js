@@ -12,6 +12,9 @@ async function openArtistModal(artistId) {
     modalOverlay.classList.add('is-open');
     document.body.classList.add('modal-open');
     addEventListeners();
+
+    input.value = '';
+
   } catch (error) {
     showToast('Failed to load artist data.');
   } finally {
@@ -67,8 +70,16 @@ function showToast(message) {
     if (id) {
       openArtistModal(id);
     } else {
-      alert('Enter the artist ID. For example: 64f389465ae26083f39b1798');
+      alert('Enter the artist ID.');
     }
   });
 });
+
+fetch('https://sound-wave.b.goit.study/api/artists')
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+    data.artists.forEach(artist => console.log(artist._id, artist.name));
+  })
+  .catch(console.error);
 // тимчасово
