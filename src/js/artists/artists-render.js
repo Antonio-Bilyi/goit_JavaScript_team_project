@@ -1,5 +1,3 @@
-'use strict';
-
 const artistsContainer = document.querySelector(".art-list-card");
 
 export function markupCardArtist(data) {
@@ -23,4 +21,3 @@ export function markupCardArtist(data) {
     `).join('');
     artistsContainer.insertAdjacentHTML("beforeend", markup);
   }
-  
