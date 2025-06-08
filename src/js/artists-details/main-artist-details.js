@@ -61,7 +61,7 @@ function showToast(message) {
 }
 
 
-// тимчасово
+// для тимчасової кнопки
   const openBtn = document.getElementById('testOpenBtn');
   const input = document.getElementById('artistIdInput');
 
