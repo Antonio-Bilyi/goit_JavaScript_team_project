@@ -44,6 +44,15 @@
     font-weight: 600;
 }
 
+.f-anchor-link {
+    transition: color 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.f-anchor-link:focus,
+.f-anchor-link:hover {
+    color: #764191;
+}
+
 .f-bottom {
     display: flex;
     flex-direction: column;
@@ -64,6 +73,16 @@
     margin: auto;
 }
 
+.f-link {
+    display: inline-block;
+    transition: transform 350ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.f-link:focus,
+.f-link:hover {
+    transform: scale(1.25);
+}
+
 .f-icon {
     width: 40px;
     height: 40px;
@@ -81,6 +100,7 @@
     .f-logo {
         width: 116px;
         height: 45px;
+        fill: #fff;
     }
 
     .f-top {
