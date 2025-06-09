@@ -1,7 +1,7 @@
 
 .about-us {
-    padding-top: 20px;
-    padding-bottom: 20px; 
+    padding-top: 64px;
+    padding-bottom: 64px; 
     color: #fff;
 }
 
@@ -22,11 +22,13 @@
         gap: 20px;
 }
 
-.logo-icon {
-    width: 80px;
-    height: 80px;
-    padding-bottom: 24px;
+.logo-svg {
+    width: 64px;
+    height: 64px;
+}
 
+.team-photo {
+    min-width: 280px;
 }
 
 .abt-us-section-title {
@@ -80,6 +82,16 @@
     
     }
 
+        .logo-svg {
+            width: 80px;
+            height: 80px;   
+        }
+
+    .team-photo {
+        min-width: 704px;       
+    }
+
+
     .text-box {
        
         
@@ -93,9 +105,16 @@
 
 /* ============ DESKTOP ============ */
 @media only screen and (min-width: 1440px) {
+
+    .about-us {
+            padding-top: 112px;
+            padding-bottom: 112px;
+           
+        }
+
     .logo-and-heading {
         width: 1312px;
-            height: 664px;
+        min-height: 664px;
         display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -122,14 +141,7 @@
     }
 }
 
-
-/* Styles for Tablet devices */
-@media only screen and (min-width: 768px) {
-    .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
+.team-photo {
+    height: 100%;
 }
-
-/* Styles for Desktop devices */
 
