@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #2f143f, #7642a9);
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  width: 22.5px;
+  height: auto;
+  display: block;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #e9c7ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-section {
+  padding: 2rem 2rem 4rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-image: url('../img/content-desk-min.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Планшет (до 1023px) */
+@media (max-width: 1023px) {
+  .hero-section {
+    background-image: url('../img/content-tablet-min.jpg');
+  }
+}
+
+/* Мобільний (до 479px) */
+@media (max-width: 479px) {
+  .hero-section {
+    background-image: url('../img/content-mobile-min.jpg');
+  }
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 110%;
+  letter-spacing: -1%;
+  margin: 0 0 1.5rem;
+  color: #ffffff;
+}
+
+.hero-text p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0e5ff;
+}
+
+.btn {
+  background: linear-gradient(90deg, #c296fa, #7642a9);
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #a974e8, #5d2d95);
+}
+
+.hero-images {
+  flex: 1;
+  min-width: 280px;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-images .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.hero-images img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 160px;
+}
+
+@media (max-width: 479px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-images .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-images img {
+    height: auto;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-images .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text h1 {
+    font-size: 48px;
+  }
+
+  .hero-images .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1.25rem;
+  }
+
+  .hero-images img {
+    height: 170px;
+  }
+}
