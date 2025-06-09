@@ -14,7 +14,7 @@ const limit = 8;
       hideLoader();
       markupCardArtist(data.artists);
     } catch (error) {
-      console.log("Помилка в getListArtist:", error);
+      console.error("Помилка в getListArtist:", error);
     }
     if (page > 1) {
       scroll();
@@ -23,7 +23,6 @@ const limit = 8;
   
 function loadMoreBtn(event) {
   event.preventDefault();
-  console.log(event);
   ++page;
     getListArtist();
 }
