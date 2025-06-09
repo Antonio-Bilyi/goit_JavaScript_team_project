@@ -4,27 +4,18 @@
       <picture>
         <source
           media="(min-width: 1280px)"
-          srcset="
-            ./src/img/desk-Image-min.png    1x,
-            ./src/img/desk-Image@2x-min.png 2x
-          "
+          srcset="/img/desk-Image-min.png 1x, /img/desk-Image@2x-min.png 2x"
         />
         <source
           media="(min-width: 768px)"
-          srcset="
-            ./src/img/tab-Image-min.png    1x,
-            ./src/img/tab-Image@2x-min.png 2x
-          "
+          srcset="/img/tab-Image-min.png 1x, /img/tab-Image@2x-min.png 2x"
         />
         <source
           media="(max-width: 767px)"
-          srcset="
-            ./src/img/mob-Image-min.png    1x,
-            ./src/img/mob-Image@2x-min.png 2x
-          "
+          srcset="/img/mob-Image-min.png 1x, /img/mob-Image@2x-min.png 2x"
         />
         <img
-          src="./src/img/desk-Image-min.png"
+          src="/img/desk-Image-min.png"
           alt="team-photo"
           class="team-photo"
           loading="lazy"
@@ -34,11 +25,10 @@
       </picture>
 
       <div class="text-box">
-        <img
-          src="./src/img/symbol-defs.svg"
-          alt="logo-icon"
-          class="logo-icon"
-        />
+        <svg class="logo-svg" width="64" height="64">
+          <use href="/img/symbol-defs.svg#icon-logo-icon"></use>
+        </svg>
+
         <h2 class="abt-us-section-title">About <span>ArtistsHub</span></h2>
       </div>
     </div>
