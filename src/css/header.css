@@ -1,0 +1,137 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: #0f0f0f;
+  height: 64px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 24px 0px 20px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  transition: fill 250ms ease;
+  cursor: pointer;
+}
+
+.header-logo-icon {
+  width: 119px;
+  height: 51px;
+}
+
+/* Навігація прихована */
+.header-nav {
+  display: none;
+}
+
+/* Бургер для мобільного */
+.header-burger-btn {
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header-burger-icon {
+  fill: none;
+  stroke: #fbfbfb;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* ===== TABLET (≥768px) ===== */
+@media (min-width: 768px) {
+  .header {
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .header .container {
+    padding: 10.5px 32px;
+  }
+
+  .logo-link {
+    width: 188px;
+    height: 75px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms ease;
+  }
+
+  .logo-link:hover,
+  .logo-link:focus {
+    background-color: #ffffff;
+    outline: none;
+  }
+
+  .header-logo-icon {
+    filter: brightness(0) invert(1);
+    transition: filter 250ms ease;
+  }
+
+  .logo-link:hover .header-logo-icon,
+  .logo-link:focus .header-logo-icon {
+    filter: none;
+  }
+
+  .header-burger-btn {
+    display: none;
+  }
+
+  .header-nav {
+    display: flex;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .nav-link {
+    display: flex;
+    padding: 12px 0;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.25;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    transition: opacity 250ms ease;
+  }
+
+  .nav-link:hover {
+    opacity: 0.6;
+  }
+
+  .nav-link:focus {
+    opacity: 0.2;
+    outline: none;
+  }
+
+  .header .logo {
+    margin-right: auto;
+  }
+}
+
+/* ===== DESKTOP (≥1440px) ===== */
+@media (min-width: 1440px) {
+  .header .container {
+    padding: 10.5px 64px;
+  }
+}
