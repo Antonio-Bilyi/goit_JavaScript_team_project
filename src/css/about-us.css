@@ -1,25 +1,36 @@
 .about-us {
-    padding: 40px 20px;
-    background-color: #0f0f0f;
+    padding: 64px 20px;
+    background-color:#060307;
     color: #fff;
 }
 
 .about-us .container {
     max-width: 1280px;
     margin: 0 auto;
+    gap: 48px;
 }
 
 .logo-and-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    text-align: center;
+    gap: 48px;
+   
+}
+
+.text-box {
+    display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
 }
 
 .logo-icon {
-    width: 32px;
-    height: 32px;
+    width: 80px;
+    height: 80px;
+    padding-bottom: 24px;
+
 }
 
 .abt-us-section-title {
@@ -36,7 +47,6 @@
 }
 
 .about-us-description {
-    margin-top: 24px;
     font-family: "IBM Plex Sans", sans-serif;
         font-weight: 400;
         font-size: 18px;
@@ -48,8 +58,9 @@
 
 /* ============ TABLET ============ */
 @media (min-width: 768px) {
+   
     .logo-and-heading {
-        flex-direction: row;
+        flex-direction: column;
         text-align: left;
         align-items: center;
         gap: 40px;
@@ -71,12 +82,12 @@
             line-height: 1.5;
             color: #fff;
         text-align: left;
-        margin-top: 32px;
+    
     }
 
     .text-box {
-        display: flex;
-        align-items: center;
+       
+        
         gap: 16px;
     }
 
@@ -88,20 +99,24 @@
 /* ============ DESKTOP ============ */
 @media (min-width: 1280px) {
     .about-us {
-        padding: 80px 40px;
+        padding: 112px 64px;
     }
 
     .logo-and-heading {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        width: 1312px;
+            height: 664px;
+        display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 24px;
     }
 
     .abt-us-section-title {
         font-family: "Epilogue", sans-serif;
             font-weight: 700;
             font-size: 60px;
-            line-height: 1.2;
+            line-height: 72px;
             letter-spacing: -0.01em;
             color: #fff;
     }
@@ -110,7 +125,7 @@
         font-family: "IBM Plex Sans", sans-serif;
             font-weight: 400;
             font-size: 20px;
-            line-height: 1.5;
+            line-height: 30px;
             color: #fff;
         max-width: 700px;
     }
