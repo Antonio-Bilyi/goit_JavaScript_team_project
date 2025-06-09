@@ -15,5 +15,4 @@ export async function fetchArtist(page, limit) {
             totalArtists: response.data.totalArtists,
             artists: response.data.artists,
         } 
-    
   };

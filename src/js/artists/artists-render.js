@@ -1,60 +1,56 @@
-// HTML-елементи
 const artistsContainer = document.querySelector(".art-list-card");
-const loadMoreBtn = document.querySelector(".art-btn-loadMore");
-const loader = document.getElementById("loader");
-
-
-const itemsPerPage = 3;
-let currentIndex = 0;
+const loadMore = document.querySelector(".art-btn-loadMore");
+const load = document.querySelector(".loader");
 
 export function markupCardArtist(data) {
-  let widthWindows = document.documentElement.clientWidth;
+    let widthWindows = document.documentElement.clientWidth;
   let artTextRow = widthWindows <= 768 ? 50 : 145;
 
-  const markup = data.map(({ strArtist, strBiographyEN, strArtistThumb, genres }) => `
-    <li class="art-item">
-      <img class="art-img" src="${strArtistThumb}" alt="${strArtist}" />
-      <ul class="art-genre-list">
-        ${genres.map(genre => `<li class="art-genre-list-item">${genre}</li>`).join('')}
-      </ul>
-      <h4 class="art-list-name">${strArtist}</h4>
-      <p class="art-list-biography">${strBiographyEN.slice(0, artTextRow)}...</p>
-      <button type="button" class="art-btn-learnMore">Learn More
-        <svg class="icon" width="24" height="24">
-          <use href="./../../img/symbol-defs.svg#icon-caret-right"></use>
-        </svg>
-      </button>
-    </li>
-  `).join('');
-  artistsContainer.insertAdjacentHTML("beforeend", markup);
+
+    const markup = data.map(({ strArtist, strBiographyEN, strArtistThumb, genres }) => `
+      <li class="art-item">
+        <img class="art-img" src="${strArtistThumb}" alt="${strArtist}" />
+        <ul class="art-genre-list">
+          ${genres.map(genre => `<li class="art-genre-list-item">${genre}</li>`).join('')}
+        </ul>
+        <h4 class="art-list-name">${strArtist}</h4>
+        <p class="art-list-biography">${strBiographyEN.slice(0, artTextRow)}...</p>
+        <button type="button" class="art-btn-learnMore">Learn More
+          <svg class="icon" width="24" height="24">
+            <use href="./../../img/symbol-defs.svg#icon-caret-right"></use>
+          </svg>
+        </button>
+      </li>
+    `).join('');
+    artistsContainer.insertAdjacentHTML("beforeend", markup);
 }
-function loadArtists() {
-  showLoader();
+  
+export function showLoader() {
+  load.classList.add('loader');
+};
 
-  setTimeout(() => {
-    const nextArtists = artists.slice(currentIndex, currentIndex + itemsPerPage);
-    markupCardArtist(nextArtists);
-    currentIndex += itemsPerPage;
+export function hideLoader() {
+  load.classList.remove('loader');  
+};
 
-    hideLoader();
-
-    if (currentIndex >= artists.length) {
-      loadMoreBtn.style.display = "none";
-    }
-  }, 500);
-}
-
-function showLoader() {
-  loader.classList.add('is-visible');
-  loadMoreBtn.classList.add('is-hidden');
+export function statusBtnLoadMore(page, totalArtists, limit) {
+  let totalPage = Math.ceil(totalArtists / limit);
+  totalPage > page? showLoadMoreButton():hideLoadMoreButton();
 }
 
-function hideLoader() {
-  loader.classList.remove('is-visible');
-  loadMoreBtn.classList.remove('is-hidden');
+function showLoadMoreButton() {
+  loadMore.classList.remove('hidden');
 }
 
-loadMoreBtn.addEventListener("click", loadArtists);
+function hideLoadMoreButton() {
+  loadMore.classList.add('hidden');
+}
 
-loadArtists();
-
+export function scroll() {
+  const el = document.querySelector(".art-item");
+  let ghtCard = el.getBoundingClientRect();
+    window.scrollBy({
+      top: (ghtCard.height * 2),
+      behavior: "smooth",
+    });
+  }
