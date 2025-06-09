@@ -1,12 +1,7 @@
-.about-us .container {
-    min-width: 320px;
-    max-width: 375px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
+
 .about-us {
-    padding: 64px 20px;
-    background-color:#060307;
+    padding-top: 20px;
+    padding-bottom: 20px; 
     color: #fff;
 }
 
@@ -59,11 +54,6 @@
 
 /* ============ TABLET ============ */
 @media only screen and (min-width: 768px) {
-   .about-us .container {
-        max-width: 768px;
-        padding: 0 32px;
-    }
-
     .logo-and-heading {
         flex-direction: column;
         text-align: left;
@@ -103,11 +93,6 @@
 
 /* ============ DESKTOP ============ */
 @media only screen and (min-width: 1440px) {
-    .about-us .container {
-        min-width: 1440px;
-        padding: 0 64px;
-    }
-
     .logo-and-heading {
         width: 1312px;
             height: 664px;
