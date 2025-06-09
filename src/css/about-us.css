@@ -122,13 +122,19 @@
             gap: 24px;
     }
 
+    /* .text-box {
+        min-width: 640px;
+    } */
+
+
     .abt-us-section-title {
         font-family: "Epilogue", sans-serif;
             font-weight: 700;
             font-size: 60px;
-            line-height: 72px;
+            line-height: 1.2;
             letter-spacing: -0.01em;
             color: #fff;
+            min-width: 640px;
     }
 
     .about-us-description {
