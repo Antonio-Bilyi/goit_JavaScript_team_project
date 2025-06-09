@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   z-index: 200;
-  background-color: #0f0f0f;
   height: 64px;
 }
 
@@ -25,7 +24,6 @@
   height: 51px;
 }
 
-/* Навігація прихована */
 .header-nav {
   display: none;
 }
@@ -68,20 +66,9 @@
     transition: background-color 250ms ease;
   }
 
-  .logo-link:hover,
-  .logo-link:focus {
-    background-color: #ffffff;
-    outline: none;
-  }
-
   .header-logo-icon {
     filter: brightness(0) invert(1);
     transition: filter 250ms ease;
-  }
-
-  .logo-link:hover .header-logo-icon,
-  .logo-link:focus .header-logo-icon {
-    filter: none;
   }
 
   .header-burger-btn {
@@ -129,7 +116,6 @@
   }
 }
 
-/* ===== DESKTOP (≥1440px) ===== */
 @media (min-width: 1440px) {
   .header .container {
     padding: 10.5px 64px;
