@@ -18,11 +18,7 @@
   right: 0;
   top: 0;
   height: 80px; /* висота верхнього градієнта */
-  background: linear-gradient(
-    to bottom,
-    rgba(35, 19, 43, 1),
-    rgba(35, 19, 43, 0)
-  );
+  background: linear-gradient(to bottom, rgba(6, 3, 7, 1), rgba(35, 19, 43, 0));
   pointer-events: none;
   z-index: 2;
 }
@@ -34,7 +30,7 @@
   right: 0;
   bottom: 0;
   height: 106px;
-  background: linear-gradient(to top, rgba(35, 19, 43, 1), rgba(35, 19, 43, 0));
+  background: linear-gradient(to top, rgba(6, 3, 7, 1), rgba(35, 19, 43, 0));
   pointer-events: none;
   z-index: 2;
 }
