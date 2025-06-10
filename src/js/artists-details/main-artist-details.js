@@ -3,8 +3,8 @@ import { renderArtistModal } from './artist-details-render.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const modalOverlay = document.querySelector('.modal-overlay');
-
-async function openArtistModal(artistId) {
+ 
+ async function openArtistModal(artistId) {
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
@@ -21,7 +21,6 @@ async function openArtistModal(artistId) {
     hideLoader();
   }
 }
-
 function closeModal() {
   modalOverlay.classList.remove('is-open');
   document.body.classList.remove('modal-open');
@@ -59,8 +58,6 @@ function hideLoader() {
 function showToast(message) {
   alert(message); 
 }
-
-
 // для тимчасової кнопки
   const openBtn = document.getElementById('testOpenBtn');
   const input = document.getElementById('artistIdInput');
@@ -75,11 +72,11 @@ function showToast(message) {
   });
 });
 
-fetch('https://sound-wave.b.goit.study/api/artists')
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    data.artists.forEach(artist => console.log(artist._id, artist.name));
-  })
-  .catch(console.error);
+// fetch('https://sound-wave.b.goit.study/api/artists')
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log(data);
+//     data.artists.forEach(artist => console.log(artist._id, artist.name));
+//   })
+//   .catch(console.error);
 // тимчасово

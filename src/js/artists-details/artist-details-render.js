@@ -4,19 +4,21 @@ export function renderArtistModal(artist) {
   }
 
   // Обробка років існування
-  const yearsExistence = artist.startYear
-    ? (artist.endYear ? `${artist.startYear} - ${artist.endYear}` : `${artist.startYear} - present`)
-    : 'Information missing';
+ const yearsExistence = artist.intFormedYear
+    ? (artist.intDiedYear
+        ? `${artist.intFormedYear} - ${artist.intDiedYear}` 
+        : `${artist.intFormedYear} - present`)           
+    : 'information missing'; 
 
   // Список жанрів
-  const genresList = Array.isArray(artist.genres) && artist.genres.length
+ const genresList = Array.isArray(artist.genres) && artist.genres.length
     ? `<ul class="genres-list-details">
         ${artist.genres.map(genre => `<li class="genres-item-details">${genre}</li>`).join('')}
       </ul>`
     : '<p>Genres not specified</p>';
 
   // Список альбомів з треками
-  const albumsList = Array.isArray(artist.albums) && artist.albums.length
+ const albumsList = Array.isArray(artist.albums) && artist.albums.length
     ? `<ul class="albums-list">
         ${artist.albums.map(album => {
           const tracksHeader = `
@@ -26,30 +28,30 @@ export function renderArtistModal(artist) {
               <span>Link</span>
             </li>`;
 
-          const tracksList = Array.isArray(album.tracks)
+          const tracksList = Array.isArray(album.tracks) && album.tracks.length
             ? album.tracks.map(track => {
-                const youtubeIcon = track.youtube
-                  ? `<a href="${track.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.title}">
+              const youtubeLinkHtml = track.movie
+                  ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.strTrack}">
                       <svg width="16" height="16">
                         <use href="../img/symbol-defs.svg#icon-Youtube"></use>
                         <path d="M10 15l5-3-5-3v6z"/>
                         <path d="M21.8 7.2s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15 4 12 4 12 4h0s-3 0-6 .3c-.8.1-1.6.6-2.1 1.4-.4.6-.5 1.4-.5 1.7-.1.5-.1 1.1-.1 1.7v1.8c0 .6 0 1.2.1 1.7 0 .3.1 1.1.5 1.7.5.8 1.3 1.3 2.1 1.4 1.5.1 6 .3 6 .3s3 0 6-.3c.7-.1 1.4-.6 1.9-1.4.6-.7.8-2 .8-2v-3.6z"/>
                       </svg>
                     </a>`
-                  : '';
-
+                : ''; 
+              
                 return `
                   <li class="track-item">
-                    <span class="track-title">${track.title}</span>
-                    <span class="track-duration">${track.duration}</span>
-                    <span class="track-youtube">${youtubeIcon}</span>
+                    <span class="track-title">${track.strTrack}</span>
+                    <span class="track-duration">${track.intDuration}</span>
+                    <span class="track-youtube">${track.movie}</span> // Display the generated link/icon
                   </li>`;
               }).join('')
-            : '';
-
+            : ''; 
+          
           return `
             <li class="album-item">
-              <h4 class="album-title">${album.title}</h4>
+              <h4 class="album-title">${album.strAlbum}</h4>
               <ul class="tracks-list">
                 ${tracksHeader}
                 ${tracksList}
@@ -67,30 +69,42 @@ export function renderArtistModal(artist) {
         </svg>
       </button>
 
-      <h2 class="artist-name">${artist.name}</h2>
-      <img class="img-details" src="${artist.image}" alt="Photo ${artist.name}" />
+      <h2 class="artist-name">${artist.strArtist}</h2>
+      <img class="img-details" src="${artist.strArtistThumb}" alt="Photo ${artist.strArtist}" />
 
       <ul class="artist-info-list">
-        <li><strong>Years active:</strong> ${yearsExistence}</li>
-        <li><strong>Sex:</strong> ${artist.gender || 'Unknown'}</li>
-        <li><strong>Members:</strong> ${artist.membersCount || 'Unknown'}</li>
-        <li><strong>Country:</strong> ${artist.country || 'Unknown'}</li>
-      </ul>
+  <li class="item-info">
+    <span class="info-label"><strong>Years active:</strong></span>
+    <span class="info-value">${yearsExistence}</span>
+  </li>
+  <li class="item-info">
+    <span class="info-label"><strong>Sex:</strong></span>
+    <span class="info-value">${artist.strGender || 'Unknown'}</span>
+  </li>
+  <li class="item-info">
+    <span class="info-label"><strong>Members:</strong></span>
+    <span class="info-value">${artist.intMembers || 'Unknown'}</span>
+  </li>
+  <li class="item-info">
+    <span class="info-label"><strong>Country:</strong></span>
+    <span class="info-value">${artist.strCountry || 'Unknown'}</span>
+  </li>
+</ul>
 
       <div class="biography-div">
         <h3 class="title-biography">Biography</h3>
-        <p class="text-biography">${artist.biography || 'Biography missing'}</p>
+        <p class="text-biography">${artist.strBiographyEN || 'Biography missing'}</p>
       </div>
 
-      <div class="genres-div">
+     <div class="genres-div">
         <h3 class="title-genres">Genres</h3>
         ${genresList}
       </div>
 
       <div class="albums-div">
-        <h3 class="title-album">Albums</h3>
-        ${albumsList}
-      </div>
+    <h3 class="title-album">Albums</h3>
+    ${albumsList}
+  </div>
     </div>
   `;
 }
