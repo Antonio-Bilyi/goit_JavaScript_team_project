@@ -1,41 +1,4 @@
-// import Swiper from 'swiper';
-// import 'swiper/css';
 
-// import { fetchFeedbacks } from './feedback-api';
-// import { createFeedbackMarkup } from './feedback-render';
-
-// export async function initFeedbackSlider() {
-//   console.log('initFeedbackSlider старт');
-
-//   const container = document.querySelector('#feedback-list');
-//   if (!container) {
-  
-//     return;
-//   }
-
-//   const feedbacks = await fetchFeedbacks();
-
-//   if (!Array.isArray(feedbacks)) {
-//     console.warn('feedbacks не является массивом:', feedbacks);
-//     return;
-//   }
-
-//   container.innerHTML = feedbacks.map(createFeedbackMarkup).join('');
-
-//   new Swiper('.feedback-swiper', {
-//     loop: true,
-//     navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev',
-//     },
-//     pagination: {
-//       el: '.custom-pagination',
-//       clickable: true,
-//     },
-//   });
-
-//   console.log('Слайдер инициализирован!');
-// }
 
 
 import Swiper from 'swiper';
