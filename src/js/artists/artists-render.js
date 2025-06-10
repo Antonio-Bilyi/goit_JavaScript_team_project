@@ -41,11 +41,11 @@ export function statusBtnLoadMore(page, totalArtists, limit) {
   totalPage > page? showLoadMoreButton():hideLoadMoreButton();
 }
 
-function showLoadMoreButton() {
+export function showLoadMoreButton() {
   loadMore.classList.remove('hidden');
 }
 
-function hideLoadMoreButton() {
+export function hideLoadMoreButton() {
   loadMore.classList.add('hidden');
 }
 

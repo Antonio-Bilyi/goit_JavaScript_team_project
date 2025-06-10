@@ -3,9 +3,11 @@ export function renderArtistModal(artist) {
     return '<p class="error">No artist data available</p>';
   }
 
+  console.log("artists:", artist);
+
   // Обробка років існування
-  const yearsExistence = artist.startYear
-    ? (artist.endYear ? `${artist.startYear} - ${artist.endYear}` : `${artist.startYear} - present`)
+  const yearsExistence = artist.intFormedYear
+    ? (artist.intDiedYear ? `${artist.intFormedYear} - ${artist.intDiedYear}` : `${artist.intFormedYear} - present`)
     : 'Information missing';
 
   // Список жанрів
@@ -67,19 +69,20 @@ export function renderArtistModal(artist) {
         </svg>
       </button>
 
-      <h2 class="artist-name">${artist.name}</h2>
-      <img class="img-details" src="${artist.image}" alt="Photo ${artist.name}" />
+      <h2 class="artist-name">${artist.strArtist}</h2>
+      <img class="img-details" src="${artist.strArtistThumb}" alt="Photo ${artist.strArtist}" />
 
       <ul class="artist-info-list">
         <li><strong>Years active:</strong> ${yearsExistence}</li>
-        <li><strong>Sex:</strong> ${artist.gender || 'Unknown'}</li>
-        <li><strong>Members:</strong> ${artist.membersCount || 'Unknown'}</li>
-        <li><strong>Country:</strong> ${artist.country || 'Unknown'}</li>
+        <li><strong>Sex:</strong> ${artist.strGender|| 'Unknown'}</li>
+        <li><strong>Members:</strong> ${artist.intMembers || 'Unknown'}</li>
+        <li><strong>Country:</strong> ${artist.strCountry || 'Unknown'}</li>
       </ul>
 
       <div class="biography-div">
         <h3 class="title-biography">Biography</h3>
-        <p class="text-biography">${artist.biography || 'Biography missing'}</p>
+        <p class="text-biography">${artist.strBiographyEN
+          || 'Biography missing'}</p>
       </div>
 
       <div class="genres-div">

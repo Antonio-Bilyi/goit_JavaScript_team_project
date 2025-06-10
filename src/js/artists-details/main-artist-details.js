@@ -4,14 +4,20 @@ import { renderArtistModal } from './artist-details-render.js';
 
 const modalOverlay = document.querySelector('.modal-overlay');
 
-export async function openArtistModal(artistId) {
+export async function openArtistModal(event) {
+  event.preventDefault();
+
+  let artistId = event.target.dataset.id;
+  // console.log("id:", event);
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
+    console.log("responce:", artist);
+
     modalOverlay.innerHTML = renderArtistModal(artist);
     modalOverlay.classList.add('is-open');
     document.body.classList.add('modal-open');
-    addEventListeners();
+     addEventListeners();
 
     input.value = '';
 
@@ -75,11 +81,11 @@ export function showToast(message) {
   });
 
 
-fetch('https://sound-wave.b.goit.study/api/artists')
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    data.artists.forEach(artist => console.log(artist._id, artist.name));
-  })
-  .catch(console.error);
+// fetch('https://sound-wave.b.goit.study/api/artists')
+//   .then(res => res.json())
+//   .then(data => {
+//     console.log(data);
+//     data.artists.forEach(artist => console.log(artist._id, artist.name));
+//   })
+//   .catch(console.error);
 // тимчасово
