@@ -1,30 +1,33 @@
 import { fetchArtistDetails } from './artist-details-api.js';
 import { renderArtistModal } from './artist-details-render.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const modalOverlay = document.querySelector('.modal-overlay');
- 
- async function openArtistModal(artistId) {
+const modalOverlay = document.querySelector('.modal-overlay');
+
+export async function openArtistModal(event) {
+  event.preventDefault();
+  let artistId = event.target.dataset.id;
+  let genre = event.target.dataset.style;
+
+  let artistGenres = genre ? genre.split(',').map(g => g.trim()) : [];
+  console.log("artistGenres:", artistGenres);
+
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
-    modalOverlay.innerHTML = renderArtistModal(artist);
+    modalOverlay.innerHTML = renderArtistModal(artist, artistGenres);
     modalOverlay.classList.add('is-open');
     document.body.classList.add('modal-open');
     addEventListeners();
-
-    input.value = '';
-
   } catch (error) {
     showToast('Failed to load artist data.');
   } finally {
     hideLoader();
   }
 }
+
 function closeModal() {
   modalOverlay.classList.remove('is-open');
   document.body.classList.remove('modal-open');
-  modalOverlay.innerHTML = ''; // очищення
   removeEventListeners();
 }
 
@@ -57,26 +60,6 @@ function hideLoader() {
 }
 function showToast(message) {
   alert(message); 
-}
-// для тимчасової кнопки
-  const openBtn = document.getElementById('testOpenBtn');
-  const input = document.getElementById('artistIdInput');
+};
 
-  openBtn?.addEventListener('click', () => {
-    const id = input?.value.trim();
-    if (id) {
-      openArtistModal(id);
-    } else {
-      alert('Enter the artist ID.');
-    }
-  });
-});
 
-// fetch('https://sound-wave.b.goit.study/api/artists')
-//   .then(res => res.json())
-//   .then(data => {
-//     console.log(data);
-//     data.artists.forEach(artist => console.log(artist._id, artist.name));
-//   })
-//   .catch(console.error);
-// тимчасово

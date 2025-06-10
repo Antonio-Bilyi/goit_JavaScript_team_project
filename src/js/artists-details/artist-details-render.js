@@ -1,29 +1,37 @@
-export function renderArtistModal(artist) {
+export function renderArtistModal(artist, genres) {
   if (!artist || typeof artist !== 'object') {
     return '<p class="error">No artist data available</p>';
   }
-
   // Роки існування
   const yearsExistence = artist.intFormedYear
     ? (artist.intDiedYear
         ? `${artist.intFormedYear} - ${artist.intDiedYear}`
         : `${artist.intFormedYear} - present`)
     : 'information missing';
-
   // Обробка жанрів (масив або рядок)
-  const genresArray = Array.isArray(artist.genres)
-    ? artist.genres
-    : typeof artist.genres === 'string'
-      ? artist.genres.split(',').map(g => g.trim())
+  // const genresArray = [genres];
+  const genresArray = Array.isArray(genres)
+    ? genres
+    : typeof genres === 'string'
+      ? genres.split(',').map(g => g.trim())
       : [];
 
-  const genresList = genresArray.length > 0
+  //  Функція для форматування мілісекунд у хвилини:секунди
+  function formatDuration(ms) {
+    if (!ms || isNaN(ms)) return 'N/A';
+    const totalSeconds = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+
+    const genresList = genresArray.length > 0
     ? `<ul class="genres-list-details">
         ${genresArray.map(genre => `<li class="genres-item-details">${genre}</li>`).join('')}
       </ul>`
     : '<p>Genres not specified</p>';
 
-  // Функція для побудови HTML одного треку
+  // Функція рендеру треку з форматом часу
   const renderTrackItem = track => {
     const youtubeLinkHtml = track.movie
       ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.strTrack}">
@@ -36,12 +44,12 @@ export function renderArtistModal(artist) {
     return `
       <li class="track-item">
         <span class="track-title">${track.strTrack}</span>
-        <span class="track-duration">${track.intDuration || 'N/A'}</span>
+        <span class="track-duration">${formatDuration(track.intDuration)}</span>
         <span class="track-youtube">${youtubeLinkHtml}</span>
       </li>`;
   };
 
-  // Якщо є albumsList — використовуємо його
+  // Побудова списку альбомів
   let albumsList = '';
   if (Array.isArray(artist.albumsList) && artist.albumsList.length > 0) {
     albumsList = `<ul class="albums-list">
@@ -71,7 +79,7 @@ export function renderArtistModal(artist) {
     </ul>`;
   }
 
-  // Якщо albumsList нема, але є tracksList — групуємо треки по альбомах
+  // Якщо немає albumsList, але є tracksList
   else if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
     const albumsMap = {};
 
@@ -87,9 +95,9 @@ export function renderArtistModal(artist) {
       ${Object.entries(albumsMap).map(([albumName, tracks]) => {
         const tracksHeader = `
           <li class="tracks-header">
-            <span>Track</span>
-            <span>Time</span>
-            <span>Link</span>
+            <span class="span-track">Track</span>
+            <span class="span-time">Time</span>
+            <span class="span-link">Link</span>
           </li>`;
 
         const tracksList = tracks.map(renderTrackItem).join('');
@@ -106,11 +114,12 @@ export function renderArtistModal(artist) {
     </ul>`;
   }
 
-  // Якщо нема жодного джерела
+  // Якщо немає треків і альбомів
   else {
     albumsList = '<p>There are no albums</p>';
   }
 
+  // Повертаємо готовий HTML модального вікна
   return `<div class="modal">
     <button class="close-modal-btn" type="button">
       <svg class="icon-close-btn" width="16" height="16">
@@ -146,7 +155,7 @@ export function renderArtistModal(artist) {
     </div>
 
     <div class="genres-div">
-      <h3 class="title-genres">Genres</h3>
+      <h3 class="title-genres"></h3>
       ${genresList}
     </div>
 
