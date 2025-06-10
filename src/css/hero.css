@@ -1,0 +1,133 @@
+.hero-section {
+    background-color: #23132b;
+    padding-top: 64px;
+    min-height: 1031px;
+
+    background-image: 
+    url(../img/hero-mob.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: auto;
+}
+
+.hero-section::before {
+    content: "";
+    width: 378px;
+    height: 80px;
+
+    background: linear-gradient(180deg, 
+    rgba(35, 19, 43, 0) 0%, #060307 100%);
+}
+
+.hero-title {
+    font-family: "Epilogue",
+    sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero-descr {
+    font-family: "IBM Plex Sans",
+    sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.hero-btn {
+    border:none;
+    border-radius: 12px;
+    padding: 10px 24px;
+    width: 280px;
+    height: 47px;
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+    background: #764191;
+
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 250ms ease;
+}
+
+.hero-btn:hover {
+    opacity: 0.6;
+}
+
+.hero-logo {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .hero-section {
+        padding-top: 32px;
+        min-height: 995px;
+
+        background-image:
+        url(../img/hero-tab.png);
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .hero-title {
+        width: 624px;
+        margin-bottom: 24px;
+    }
+
+    .hero-descr {
+        width: 624px;
+        margin-bottom: 32px;
+
+        font-size: 20px;
+    }
+
+    .hero-btn {
+        width: 246px;
+    }
+}
+
+
+@media only screen and (min-width: 1440px) {
+    .hero-section {
+        min-height: 900px;
+
+        background-image:
+        url(../img/hero-desktop.png);
+        
+        background-position: right;
+        background-size: auto;
+    
+
+    }
+
+    .hero-title {
+        width: 640px;
+    
+        font-size: 84px;
+    }
+
+    .hero-descr {
+        width: 640px;   
+    }
+
+}
