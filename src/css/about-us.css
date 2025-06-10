@@ -1,0 +1,153 @@
+
+.about-us {
+    padding-top: 64px;
+    padding-bottom: 64px; 
+    color: #fff;
+}
+
+
+.logo-and-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+   
+}
+
+.text-box {
+    display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 20px;
+}
+
+.logo-svg {
+    width: 64px;
+    height: 64px;
+}
+
+.team-photo {
+    min-width: 280px;
+}
+
+.abt-us-section-title {
+    font-family: "Epilogue", sans-serif;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: #fff;
+}
+
+.abt-us-section-title span {
+    display: block;
+}
+
+.about-us-description {
+    font-family: "IBM Plex Sans", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+        color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============ TABLET ============ */
+@media only screen and (min-width: 768px) {
+    .logo-and-heading {
+        flex-direction: column;
+        text-align: left;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .abt-us-section-title {
+        font-family: "Epilogue", sans-serif;
+            font-weight: 700;
+            font-size: 44px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #fff;
+    }
+
+    .about-us-description {
+        font-family: "IBM Plex Sans", sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1.5;
+            color: #fff;
+        text-align: left;
+    
+    }
+
+        .logo-svg {
+            width: 80px;
+            height: 80px;   
+        }
+
+    .team-photo {
+        min-width: 704px;       
+    }
+
+
+    .text-box {
+       
+        
+        gap: 16px;
+    }
+
+    .text-box .section-title {
+        margin: 0;
+    }
+}
+
+/* ============ DESKTOP ============ */
+@media only screen and (min-width: 1440px) {
+
+    .about-us {
+            padding-top: 112px;
+            padding-bottom: 112px;
+           
+        }
+
+    .logo-and-heading {
+        width: 1312px;
+        min-height: 664px;
+        display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 24px;
+    }
+
+    /* .text-box {
+        min-width: 640px;
+    } */
+
+
+    .abt-us-section-title {
+        font-family: "Epilogue", sans-serif;
+            font-weight: 700;
+            font-size: 60px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #fff;
+            min-width: 640px;
+    }
+
+    .about-us-description {
+        font-family: "IBM Plex Sans", sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            color: #fff;
+        max-width: 700px;
+    }
+}
+
+.team-photo {
+    height: 100%;
+}
+

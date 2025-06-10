@@ -8,4 +8,3 @@ import { initFeedbackSlider } from './js/feedback/main-feedback.js';
 window.addEventListener('DOMContentLoaded', () => {
   initFeedbackSlider();
 });
-
