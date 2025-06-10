@@ -1,5 +1,6 @@
 .header {
-  position: sticky;
+  position: fixed;
+
   top: 0;
   z-index: 200;
   height: 64px;
@@ -48,7 +49,7 @@
 /* ===== TABLET (≥768px) ===== */
 @media (min-width: 768px) {
   .header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     background-color: transparent;
   }
