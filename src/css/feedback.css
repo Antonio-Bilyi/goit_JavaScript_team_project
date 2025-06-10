@@ -1,0 +1,160 @@
+/* .feedback-section {
+    background-color: #0f0f0f;
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.feedback-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.feedback-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.feedback-user {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.star-rating {
+    color: #9B5DE5;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.feedback-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 30px;
+    color: white;
+}
+
+.swiper-button-prev {
+    left: 20px;
+}
+
+.swiper-button-next {
+    right: 20px;
+}
+
+.custom-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.custom-pagination .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #555;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.custom-pagination .dot.active {
+    background-color: #fff;
+}
+
+.swiper {
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%; } */
+
+
+        .feedback-section {
+            background-color: #0f0f0f;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+        }
+    
+        .feedback-swiper {
+            position: relative;
+            max-width: 1440px;
+            margin: 0 auto;
+            overflow: hidden;
+            /* чтобы ничего не торчало за границы */
+        }
+    
+        .feedback-card {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    
+        /* Звёздочки */
+        .feedback-stars {
+            color: #9B5DE5;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+    
+        /* Текст отзыва */
+        .feedback-text {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+    
+        /* Автор */
+        .feedback-author {
+            font-size: 16px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+    
+        /* Стрелки */
+        .feedback-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 10;
+            font-size: 30px;
+            color: white;
+        }
+    
+        .swiper-button-prev {
+            left: 20px;
+        }
+    
+        .swiper-button-next {
+            right: 20px;
+        }
+    
+        /* Буллеты */
+        .custom-pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+    
+        .custom-pagination .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #555;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+    
+        .custom-pagination .dot.active {
+            background-color: #fff;
+        }
+    
+        /* Убрать: .swiper-wrapper { display: flex; } */
