@@ -1,6 +1,7 @@
 const loadMore = document.querySelector(".art-btn-loadMore").addEventListener("click", loadMoreBtn);
 const loader = document.getElementById('loader');
 
+import { openArtistModal } from '../artists-details/main-artist-details.js'; 
 import { fetchArtist } from './artists-api.js';
 import { markupCardArtist, hideLoader, showLoader, statusBtnLoadMore, scroll} from './artists-render.js';
 let page = 1;

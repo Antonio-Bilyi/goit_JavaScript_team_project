@@ -1,10 +1,10 @@
 import { fetchArtistDetails } from './artist-details-api.js';
 import { renderArtistModal } from './artist-details-render.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const modalOverlay = document.querySelector('.modal-overlay');
 
-async function openArtistModal(artistId) {
+const modalOverlay = document.querySelector('.modal-overlay');
+
+export async function openArtistModal(artistId) {
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
@@ -22,41 +22,41 @@ async function openArtistModal(artistId) {
   }
 }
 
-function closeModal() {
+export function closeModal() {
   modalOverlay.classList.remove('is-open');
   document.body.classList.remove('modal-open');
   modalOverlay.innerHTML = ''; // очищення
   removeEventListeners();
 }
 
-function handleOverlayClick(event) {
+export function handleOverlayClick(event) {
   if (event.target === modalOverlay) closeModal();
 }
 
-function handleEscKey(event) {
+export function handleEscKey(event) {
   if (event.key === 'Escape') closeModal();
 }
 
-function addEventListeners() {
+export function addEventListeners() {
   const closeBtn = modalOverlay.querySelector('.close-modal-btn');
   closeBtn?.addEventListener('click', closeModal);
   modalOverlay.addEventListener('click', handleOverlayClick);
   window.addEventListener('keydown', handleEscKey);
 }
 
-function removeEventListeners() {
+export function removeEventListeners() {
   window.removeEventListener('keydown', handleEscKey);
   modalOverlay.removeEventListener('click', handleOverlayClick);
 }
 
-function showLoader() {
+export function showLoader() {
   modalOverlay.innerHTML = `<div class="loader">Loading...</div>`;
 }
-function hideLoader() {
+export function hideLoader() {
   const loader = modalOverlay.querySelector('.loader');
   if (loader) loader.remove();
 }
-function showToast(message) {
+export function showToast(message) {
   alert(message); 
 }
 
@@ -73,7 +73,7 @@ function showToast(message) {
       alert('Enter the artist ID.');
     }
   });
-});
+
 
 fetch('https://sound-wave.b.goit.study/api/artists')
   .then(res => res.json())
