@@ -156,84 +156,100 @@ background: var(--opacity-transparent);
 color: var(--color-white);
 }
 
-.album-title{
-font-weight: 600;
-font-size: 16px;
-line-height: 150%;
+.albums{
+  font-family: var(--second-family);
+font-weight: 700;
+font-size: 24px;
+line-height: 1.3;
+letter-spacing: -0.01em;
 color: var(--color-scheme-1-text);
+margin-bottom: 16px;
 }
 
-.albums-list{
-border-radius: 16px;
+
+.album-item {
+  background-color: #060307;
+  color: #ffffff;
+  border-radius: 16px;
 padding: 14px 11px;
 width: 272px;
-/* height: 634px; */
 min-width: 250px;
-background-color: var(--color-scheme-1-background);
-display: flex;
-flex-wrap: wrap;
-gap: 12px;
+margin-bottom: 32px;
 }
 
-.tracks-header{
-display: flex;
-justify-content: space-between;
-border-radius: 8px;
-padding: 4px 0px 4px 12px;
-width: 250px;
+.album-title {
+font-family: var(--font-family);
 font-weight: 600;
-font-size: 8px;
+font-size: 16px;
 line-height: 1.5;
-background-color: var(--opacity-white-5);
+color: var(--color-scheme-1-text);
+margin-bottom: 12px;
 }
 
-.track-item{
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;  
+.tracks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; 
+}
+
+.tracks-header {
+  display: flex;
+  /* justify-content: space-between; */
+  padding: 4px 0px 4px 12px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
+  border-radius: 8px;
+  background: var(--opacity-white-5);
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family);
+font-weight: 400;
+font-size: 12px;
+line-height: 1.5;
+color: var(--color-scheme-1-text);
 border-radius: 8px;
 padding: 8px 0px 8px 12px;
-}
-/* .track-item li:nth-child(odd) {
-background-color: #000; 
-} */
-
-.track-item li:nth-child(even) {
- background-color: var(--opacity-white-10);
+width: 100%;
 }
 
-.track-title{
-font-weight: 400;
-font-size: 12px;
-line-height: 1.5;
+.track-item:nth-child(even) {
+  background-color: #060307;
 }
 
-.track-duration{
-font-weight: 400;
-font-size: 12px;
-line-height: 1.5;
-text-align: center;
+.track-item:nth-child(odd) {
+  background-color: #363535;
 }
 
-.track-youtube{
-width: 24px; 
-height: 24px;
-border-radius: 0;
-text-align: center;}
+.track-title,
+.track-duration,
+.track-youtube {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
 
+.track-duration {
+  text-align: center;
+}
 
+.track-youtube {
+  text-align: center;
+}
 
-/* тимчасово */
-#artistIdInput {
-  position: fixed;
-  bottom: 16px;
-  left: 20px;
-  width: 150px;
-  padding: 8px;
-  font-size: 16px;
-  z-index: 9999;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.track-youtube a {
+  display: inline-block;
+  color: rgb(250, 247, 247);
+}
+
+.track-youtube svg {
+  fill: rgb(254, 250, 250);
+  vertical-align: middle;
 }
 
 #testOpenBtn {
