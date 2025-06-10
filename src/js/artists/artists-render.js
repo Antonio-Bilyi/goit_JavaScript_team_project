@@ -19,7 +19,7 @@ export function markupCardArtist(data) {
       class="art-btn-learnMore" 
       data-id="${_id}">Learn More
       <svg class="icon" width="24" height="24">
-        <use href="img/symbol-defs.svg#icon-caret-right"></use>
+        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
   </li>
