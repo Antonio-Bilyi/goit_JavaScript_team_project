@@ -2,7 +2,7 @@
   position: relative;
   background-color: #23132b;
   padding-top: 64px;
-  min-height: 1031px;
+  height: 1031px;
 
   background-image: url(../img/hero-mob.png);
   background-repeat: no-repeat;
@@ -94,6 +94,7 @@
     padding-top: 32px;
     min-height: 995px;
 
+
     background-image: url(../img/hero-tab.png);
   }
 
@@ -132,6 +133,7 @@
 @media only screen and (min-width: 1440px) {
   .hero-section {
     min-height: 900px;
+
 
     background-image: url(../img/hero-desktop.png);
 
