@@ -1,133 +1,159 @@
 .hero-section {
-    background-color: #23132b;
-    padding-top: 64px;
-    min-height: 1031px;
+  position: relative;
+  background-color: #23132b;
+  padding-top: 64px;
+  min-height: 1031px;
 
-    background-image: 
-    url(../img/hero-mob.png);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: auto;
+  background-image: url(../img/hero-mob.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: auto;
+  z-index: 1;
 }
 
 .hero-section::before {
-    content: "";
-    width: 378px;
-    height: 80px;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 80px; /* висота верхнього градієнта */
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 19, 43, 1),
+    rgba(35, 19, 43, 0)
+  );
+  pointer-events: none;
+  z-index: 2;
+}
 
-    background: linear-gradient(180deg, 
-    rgba(35, 19, 43, 0) 0%, #060307 100%);
+.hero-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 106px;
+  background: linear-gradient(to top, rgba(35, 19, 43, 1), rgba(35, 19, 43, 0));
+  pointer-events: none;
+  z-index: 2;
 }
 
 .hero-title {
-    font-family: "Epilogue",
-    sans-serif;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    color: #fff;
-    margin-bottom: 20px;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .hero-descr {
-    font-family: "IBM Plex Sans",
-    sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
-    margin-bottom: 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 24px;
 }
 
 .hero-btn {
-    border:none;
-    border-radius: 12px;
-    padding: 10px 24px;
-    width: 280px;
-    height: 47px;
-    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05), inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15), inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    background: #764191;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 280px;
+  height: 47px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #764191;
 
-    font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    transition: opacity 250ms ease;
+  transition: opacity 250ms ease;
 }
 
 .hero-btn:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .hero-logo {
-    width: 24px;
-    height: 24px;
-    margin-left: 12px;
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
 }
-
 
 @media only screen and (min-width: 768px) {
-    .hero-section {
-        padding-top: 32px;
-        min-height: 995px;
+  .hero-section {
+    padding-top: 32px;
+    min-height: 995px;
 
-        background-image:
-        url(../img/hero-tab.png);
-    }
+    background-image: url(../img/hero-tab.png);
+  }
 
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
+  .hero-section::before {
+    height: 125px;
+  }
 
-    .hero-title {
-        width: 624px;
-        margin-bottom: 24px;
-    }
+  .hero-section::after {
+    height: 137px;
+  }
 
-    .hero-descr {
-        width: 624px;
-        margin-bottom: 32px;
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
-        font-size: 20px;
-    }
+  .hero-title {
+    width: 624px;
+    margin-bottom: 24px;
+  }
 
-    .hero-btn {
-        width: 246px;
-    }
+  .hero-descr {
+    width: 624px;
+    margin-bottom: 32px;
+
+    font-size: 20px;
+  }
+
+  .hero-btn {
+    width: 246px;
+  }
 }
 
-
 @media only screen and (min-width: 1440px) {
-    .hero-section {
-        min-height: 900px;
+  .hero-section {
+    min-height: 900px;
 
-        background-image:
-        url(../img/hero-desktop.png);
-        
-        background-position: right;
-        background-size: auto;
-    
+    background-image: url(../img/hero-desktop.png);
 
-    }
+    background-position: right;
+    background-size: auto;
+  }
 
-    .hero-title {
-        width: 640px;
-    
-        font-size: 84px;
-    }
+  .hero-section::before {
+    height: 80px;
+  }
 
-    .hero-descr {
-        width: 640px;   
-    }
+  .hero-title {
+    width: 640px;
 
+    font-size: 84px;
+  }
+
+  .hero-descr {
+    width: 640px;
+  }
 }
