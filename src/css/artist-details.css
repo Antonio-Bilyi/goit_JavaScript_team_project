@@ -1,229 +1,225 @@
-
 /* Styles for Mobile devices */
-.modal-overlay{
-background-color: rgba(0, 0, 0, 0.25);
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: 999;
-display: flex;
-justify-content: center;
-align-items: center;
-opacity: 0;
-pointer-events: none;
-visibility: hidden;
-padding: 64px 16px;
-transition: opacity 250ms ease-in-out,  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%px;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  padding: 64px 16px;
+  transition: opacity 250ms ease-in-out,
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.modal{
-background-color: #23132b;
-color: #ffffff;
-border-radius: 16px;
-padding: 16px 8px;
-width: 100%;
-max-width: 288px;
-min-height: 80%;
-position: relative;
-top: 50%;
-left: 50%;
-overflow-y: auto;
-max-height: calc(100vh - 128px);
-transform: translate(-50%, -50%);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+.modal {
+  background-color: #23132b;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 16px 8px;
+  width: 100%;
+  max-width: 288px;
+  min-height: 80%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  overflow-y: auto;
+  max-height: calc(100vh - 128px);
+  transform: translate(-50%, -50%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
 }
 .modal-overlay.is-open {
-opacity: 1;
-visibility: visible;
-pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
-.modal-overlay:not(.is-open) .modal
-{transform: translate(-50%, -50%) scale(1.5);
+.modal-overlay:not(.is-open) .modal {
+  transform: translate(-50%, -50%) scale(1.5);
 }
 body.modal-open {
   overflow: hidden;
 }
 .close-modal-btn {
-display: flex;
-justify-content: center;
-align-items: center;
-position: absolute;
-padding: 0px;
-width: 32px; 
-height: 32px;
-border-radius: 0;
-top: 16px;
-right: 16px;
-cursor: pointer;
-background-color: transparent; 
-border: none;                
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 0px;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 .icon-close-btn {
-transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.close-modal-btn:hover .icon-close-btn {
-fill: #8a2be2;}
-
-.artist-name{
-font-weight: 700;
-font-size: 20px;
-line-height: 1.3;
-letter-spacing: -0.01em;
-text-align: center;
-color: var(--color-scheme-1-text);
-margin-bottom: 16px;
+/* .close-modal-btn:hover .icon-close-btn {
+  } */
+.artist-name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 16px;
 }
-
-.img-details{
-border-radius: 16px;
-width: 272px;
-height: 167px;
-margin-bottom: 32px;
+.img-details {
+  border-radius: 16px;
+  width: 272px;
+  margin-bottom: 32px;
 }
-
-.artist-info-list{
-display: flex;
-flex-direction: column;
-gap: 16px;
-font-weight: 600;
-font-size: 18px;
-line-height: 1.5;
-margin-bottom: 16px;
-color: var(--color-scheme-1-text);
+.artist-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-
-.biography-div{
-display: flex;
-flex-direction: column;
-font-size: 18px;
-line-height: 1.5;
-color: var(--color-scheme-1-text);
-margin-bottom: 16px;
+.item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.title-biography{
-font-weight: 600;
+.info-label {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
 }
-
-.text-biography{
-font-weight: 400;
+.info-value {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
 }
-
-.genres-list-details{
-display: flex;
-flex-wrap: wrap;
-gap: 16px;
-margin-bottom: 16px;
+.biography-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
-
-.genres-item-details{
-border: 1px solid var(--opacity-white-20);
-border-radius: 6px;
-padding: 4px 10px;
-font-weight: 600;
-font-size: 16px;
-line-height: 1.5;
-background: var(--opacity-transparent);
-color: var(--color-white);
+.title-biography {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
 }
-
-.title-album{
-font-weight: 700;
-font-size: 24px;
-line-height: 1.3;
-letter-spacing: -0.01em;
+.text-biography {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
 }
-
-.albums-list{
-border-radius: 16px;
-padding: 14px 11px;
-width: 272px;
-height: 634px;
-min-width: 250px;
-background-color: #060307;
-display: flex;
-flex-wrap: wrap;
-gap: 12px;
+.genres-list-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-
-.tracks-header{
-display: flex;
-justify-content: space-between;
-border-radius: 8px;
-padding: 4px 0px 4px 12px;
-font-weight: 600;
-font-size: 8px;
-line-height: 1.5;
-background: var(--opacity-white-5);
+.genres-div {
+  margin-bottom: 16px;
 }
-
-.track-item{
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;  
-border-radius: 8px;
-padding: 8px 0px 8px 12px;
-}
-.track-item li:nth-child(odd) {
-background-color: #000; 
-}
-
-.track-item li:nth-child(even) {
- background-color: var(--opacity-white-10);
-}
-
-.track-title{
-font-weight: 400;
-font-size: 12px;
-line-height: 1.5;
-}
-
-.track-duration{
-font-weight: 400;
-font-size: 12px;
-line-height: 1.5;
-text-align: center;
-}
-
-.track-youtube{
-width: 24px; 
-height: 24px;
-border-radius: 0;
-text-align: center;}
-
-
-
-/* тимчасово */
-#artistIdInput {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 180px;
-  padding: 8px;
+.genres-item-details {
+  border: 1px solid var(--opacity-white-20);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 600;
   font-size: 16px;
-  z-index: 9999;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  line-height: 1.5;
+  background: var(--opacity-transparent);
+  color: var(--color-white);
 }
-
-#testOpenBtn {
-  position: fixed;
-  bottom: 20px;
-  left: 220px;
-  padding: 8px 16px;
+.albums {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 16px;
+}
+.album-item {
+  background-color: #060307;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 14px 11px;
+  width: 272px;
+  min-width: 250px;
+  margin-bottom: 32px;
+}
+.album-title {
+  font-family: var(--font-family);
+  font-weight: 600;
   font-size: 16px;
-  z-index: 9999;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+  margin-bottom: 12px;
+}
+.tracks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.tracks-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0px 4px 12px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1.5;
   border-radius: 8px;
-  cursor: pointer;
+  background: var(--opacity-white-5);
 }
-#testOpenBtn:hover {
-  background-color: #0056b3;
+.track-item {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+  border-radius: 8px;
+  padding: 8px 0px 8px 12px;
+  width: 100%;
 }
-
-/* тимчасово */
+.track-item:nth-child(even) {
+  background-color: #060307;
+}
+.track-item:nth-child(odd) {
+  background-color: #363535;
+}
+.track-title,
+.track-duration,
+.track-youtube {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+.track-duration {
+  text-align: center;
+}
+.track-youtube {
+  text-align: center;
+}
+.track-youtube a {
+  display: inline-block;
+  color: rgb(250, 247, 247);
+}
+.track-youtube svg {
+  fill: rgb(254, 250, 250);
+  vertical-align: middle;
+}
