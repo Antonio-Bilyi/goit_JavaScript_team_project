@@ -1,6 +1,6 @@
-import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))i(s);new MutationObserver(s=>{for(const a of s)if(a.type==="childList")for(const d of a.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&i(d)}).observe(document,{childList:!0,subtree:!0});function o(s){const a={};return s.integrity&&(a.integrity=s.integrity),s.referrerPolicy&&(a.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?a.credentials="include":s.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function i(s){if(s.ep)return;s.ep=!0;const a=o(s);fetch(s.href,a)}})();(()=>{const t={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),modal:document.querySelector("[data-menu]"),menuLinks:document.querySelectorAll(".mob-menu-link")};t.openModalBtn.addEventListener("click",e),t.closeModalBtn.addEventListener("click",e),t.menuLinks.forEach(o=>{o.addEventListener("click",()=>{e()})});function e(){t.modal.classList.toggle("is-open")}})();const A="https://sound-wave.b.goit.study/api";async function M(t){console.log("id:",t);try{return(await fetch(`${A}/artists/${t}`)).json()}catch(e){throw console.error("API Error:",e),e}}function E(t,e){if(!t||typeof t!="object")return'<p class="error">No artist data available</p>';const o=t.intFormedYear?t.intDiedYear?`${t.intFormedYear} - ${t.intDiedYear}`:`${t.intFormedYear} - present`:"information missing",i=Array.isArray(e)?e:typeof e=="string"?e.split(",").map(n=>n.trim()):[];function s(n){if(!n||isNaN(n))return"N/A";const r=Math.floor(n/1e3),l=Math.floor(r/60),m=r%60;return`${l}:${m.toString().padStart(2,"0")}`}const a=i.length>0?`<ul class="genres-list-details">
-        ${i.map(n=>`<li class="genres-item-details">${n}</li>`).join("")}
-      </ul>`:"<p>Genres not specified</p>",d=n=>{const r=n.movie?`<a href="${n.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${n.strTrack}">
+import{a as g,S as A,N as M,P as E}from"./assets/vendor-Cj1XzFCq.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const d of o.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&r(d)}).observe(document,{childList:!0,subtree:!0});function a(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(s){if(s.ep)return;s.ep=!0;const o=a(s);fetch(s.href,o)}})();(()=>{const e={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),modal:document.querySelector("[data-menu]"),menuLinks:document.querySelectorAll(".mob-menu-link")};e.openModalBtn.addEventListener("click",t),e.closeModalBtn.addEventListener("click",t),e.menuLinks.forEach(a=>{a.addEventListener("click",()=>{t()})});function t(){e.modal.classList.toggle("is-open")}})();const S="https://sound-wave.b.goit.study/api";async function B(e){console.log("id:",e);try{return(await fetch(`${S}/artists/${e}`)).json()}catch(t){throw console.error("API Error:",t),t}}function T(e,t){if(!e||typeof e!="object")return'<p class="error">No artist data available</p>';const a=e.intFormedYear?e.intDiedYear?`${e.intFormedYear} - ${e.intDiedYear}`:`${e.intFormedYear} - present`:"information missing",r=Array.isArray(t)?t:typeof t=="string"?t.split(",").map(n=>n.trim()):[];function s(n){if(!n||isNaN(n))return"N/A";const i=Math.floor(n/1e3),l=Math.floor(i/60),p=i%60;return`${l}:${p.toString().padStart(2,"0")}`}const o=r.length>0?`<ul class="genres-list-details">
+        ${r.map(n=>`<li class="genres-item-details">${n}</li>`).join("")}
+      </ul>`:"<p>Genres not specified</p>",d=n=>{const i=n.movie?`<a href="${n.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${n.strTrack}">
             <svg width="16" height="16">
               <use href="../img/symbol-defs.svg#icon-Youtube"></use>
             </svg>
@@ -8,23 +8,23 @@ import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const e=document.cre
       <li class="track-item">
         <span class="track-title">${n.strTrack}</span>
         <span class="track-duration">${s(n.intDuration)}</span>
-        <span class="track-youtube">${r}</span>
-      </li>`};let u="";if(Array.isArray(t.albumsList)&&t.albumsList.length>0)u=`<ul class="albums-list">
-      ${t.albumsList.map(n=>{const r=Array.isArray(n.tracks)?n.tracks:[],l=`
+        <span class="track-youtube">${i}</span>
+      </li>`};let u="";if(Array.isArray(e.albumsList)&&e.albumsList.length>0)u=`<ul class="albums-list">
+      ${e.albumsList.map(n=>{const i=Array.isArray(n.tracks)?n.tracks:[],l=`
           <li class="tracks-header">
             <span>Track</span>
             <span>Time</span>
             <span>Link</span>
-          </li>`,m=r.length>0?r.map(d).join(""):'<li class="track-item">No tracks available</li>';return`
+          </li>`,p=i.length>0?i.map(d).join(""):'<li class="track-item">No tracks available</li>';return`
           <li class="album-item">
             <h4 class="album-title">${n.strAlbum} (${n.intYearReleased||"Unknown Year"})</h4>
             <ul class="tracks-list">
               ${l}
-              ${m}
+              ${p}
             </ul>
           </li>`}).join("")}
-    </ul>`;else if(Array.isArray(t.tracksList)&&t.tracksList.length>0){const n={};t.tracksList.forEach(r=>{const l=r.strAlbum||"Unknown Album";n[l]||(n[l]=[]),n[l].push(r)}),u=`<ul class="albums-list">
-      ${Object.entries(n).map(([r,l])=>{const m=`
+    </ul>`;else if(Array.isArray(e.tracksList)&&e.tracksList.length>0){const n={};e.tracksList.forEach(i=>{const l=i.strAlbum||"Unknown Album";n[l]||(n[l]=[]),n[l].push(i)}),u=`<ul class="albums-list">
+      ${Object.entries(n).map(([i,l])=>{const p=`
           <li class="tracks-header">
 
             <span class="span-track">Track</span>
@@ -32,9 +32,9 @@ import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const e=document.cre
             <span class="span-link">Link</span>
           </li>`,$=l.map(d).join("");return`
           <li class="album-item">
-            <h4 class="album-title">${r}</h4>
+            <h4 class="album-title">${i}</h4>
             <ul class="tracks-list">
-              ${m}
+              ${p}
               ${$}
             </ul>
           </li>`}).join("")}
@@ -45,52 +45,52 @@ import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const e=document.cre
       </svg>
     </button>
 
-    <h2 class="artist-name">${t.strArtist||"Unknown Artist"}</h2>
-    <img class="img-details" src="${t.strArtistThumb||"placeholder-image.jpg"}" alt="Photo ${t.strArtist||"Unknown Artist"}" />
+    <h2 class="artist-name">${e.strArtist||"Unknown Artist"}</h2>
+    <img class="img-details" src="${e.strArtistThumb||"placeholder-image.jpg"}" alt="Photo ${e.strArtist||"Unknown Artist"}" />
 
     <ul class="artist-info-list">
       <li class="item-info">
         <span class="info-label"><strong>Years active:</strong></span>
-        <span class="info-value">${o}</span>
+        <span class="info-value">${a}</span>
       </li>
       <li class="item-info">
         <span class="info-label"><strong>Sex:</strong></span>
-        <span class="info-value">${t.strGender||"Unknown"}</span>
+        <span class="info-value">${e.strGender||"Unknown"}</span>
       </li>
       <li class="item-info">
         <span class="info-label"><strong>Members:</strong></span>
-        <span class="info-value">${t.intMembers||"Unknown"}</span>
+        <span class="info-value">${e.intMembers||"Unknown"}</span>
       </li>
       <li class="item-info">
         <span class="info-label"><strong>Country:</strong></span>
-        <span class="info-value">${t.strCountry||"Unknown"}</span>
+        <span class="info-value">${e.strCountry||"Unknown"}</span>
       </li>
     </ul>
 
 
     <div class="biography-div">
       <h3 class="title-biography">Biography</h3>
-      <p class="text-biography">${t.strBiographyEN||"Biography missing"}</p>
+      <p class="text-biography">${e.strBiographyEN||"Biography missing"}</p>
     </div>
 
 
     <div class="genres-div">
       <h3 class="title-genres"></h3>
-      ${a}
+      ${o}
     </div>
 
     <div class="albums-div">
       <h3 class="albums">Albums</h3>
       ${u}
     </div>
-  </div>`}const c=document.querySelector(".modal-overlay");async function S(t){t.preventDefault();let e=t.target.dataset.id,o=t.target.dataset.style,i=o?o.split(",").map(s=>s.trim()):[];console.log("artistGenres:",i);try{T();const s=await M(e);c.innerHTML=E(s,i),c.classList.add("is-open"),document.body.classList.add("modal-open"),B()}catch{N("Failed to load artist data.")}finally{j()}}function f(){c.classList.remove("is-open"),document.body.classList.remove("modal-open"),q()}function g(t){t.target===c&&f()}function y(t){t.key==="Escape"&&f()}function B(){const t=c.querySelector(".close-modal-btn");t==null||t.addEventListener("click",f),c.addEventListener("click",g),window.addEventListener("keydown",y)}function q(){window.removeEventListener("keydown",y),c.removeEventListener("click",g)}function T(){c.innerHTML='<div class="loader">Loading...</div>'}function j(){const t=c.querySelector(".loader");t&&t.remove()}function N(t){alert(t)}async function U(t,e){const s="https://sound-wave.b.goit.study/api"+"/artists",a=await w(s,{params:{limit:e,page:t}});return{totalArtists:a.data.totalArtists,artists:a.data.artists}}const Y=document.querySelector(".art-list-card"),b=document.querySelector(".art-btn-loadMore"),v=document.querySelector(".loader");function O(t){let o=document.documentElement.clientWidth<=768?50:145;const i=t.map(({_id:s,strArtist:a,strBiographyEN:d,strArtistThumb:u,genres:n})=>`
+  </div>`}const c=document.querySelector(".modal-overlay");async function q(e){e.preventDefault();let t=e.target.dataset.id,a=e.target.dataset.style,r=a?a.split(",").map(s=>s.trim()):[];console.log("artistGenres:",r);try{P();const s=await B(t);c.innerHTML=T(s,r),c.classList.add("is-open"),document.body.classList.add("modal-open"),j()}catch{O("Failed to load artist data.")}finally{U()}}function f(){c.classList.remove("is-open"),document.body.classList.remove("modal-open"),N()}function b(e){e.target===c&&f()}function y(e){e.key==="Escape"&&f()}function j(){const e=c.querySelector(".close-modal-btn");e==null||e.addEventListener("click",f),c.addEventListener("click",b),window.addEventListener("keydown",y)}function N(){window.removeEventListener("keydown",y),c.removeEventListener("click",b)}function P(){c.innerHTML='<div class="loader">Loading...</div>'}function U(){const e=c.querySelector(".loader");e&&e.remove()}function O(e){alert(e)}async function Y(e,t){const s="https://sound-wave.b.goit.study/api"+"/artists",o=await g(s,{params:{limit:t,page:e}});return{totalArtists:o.data.totalArtists,artists:o.data.artists}}const x=document.querySelector(".art-list-card"),v=document.querySelector(".art-btn-loadMore"),k=document.querySelector(".loader");function C(e){let a=document.documentElement.clientWidth<=768?50:145;const r=e.map(({_id:s,strArtist:o,strBiographyEN:d,strArtistThumb:u,genres:n})=>`
   <li class="art-item">
-    <img class="art-img" src="${u}" alt="${a}" />
+    <img class="art-img" src="${u}" alt="${o}" />
     <ul class="art-genre-list">
-      ${n.map(r=>`<li class="art-genre-list-item">${r}</li>`).join("")}
+      ${n.map(i=>`<li class="art-genre-list-item">${i}</li>`).join("")}
     </ul>
-    <h4 class="art-list-name">${a}</h4>
-    <p class="art-list-biography">${d.slice(0,o)}...</p>
+    <h4 class="art-list-name">${o}</h4>
+    <p class="art-list-biography">${d.slice(0,a)}...</p>
     <button 
       type="button" 
       class="art-btn-learnMore" 
@@ -102,5 +102,11 @@ import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const e=document.cre
       </svg>
     </button>
   </li>
-`).join("");Y.insertAdjacentHTML("beforeend",i)}function P(){v.classList.add("loader")}function C(){v.classList.remove("loader")}function D(t,e,o){Math.ceil(e/o)>t?I():L()}function I(){b.classList.remove("hidden")}function L(){b.classList.add("hidden")}function H(){let e=document.querySelector(".art-item").getBoundingClientRect();window.scrollBy({top:e.height*2,behavior:"smooth"})}document.querySelector(".art-btn-loadMore").addEventListener("click",x);document.getElementById("loader");let p=1;const h=8,k=async()=>{try{P();const t=await U(p,h);C(),D(p,t.totalArtists,h),O(t.artists),document.querySelectorAll(".art-btn-learnMore").forEach(o=>o.addEventListener("click",S))}catch(t){console.error("Помилка в getListArtist:",t)}p>1&&H()};function x(t){t.preventDefault(),++p,L(),k()}k();const F=document.querySelector(".hero-btn");F.addEventListener("click",()=>{document.getElementById("artists").scrollIntoView({behavior:"smooth",block:"start"})});
+`).join("");x.insertAdjacentHTML("beforeend",r)}function D(){k.classList.add("loader")}function F(){k.classList.remove("loader")}function H(e,t,a){Math.ceil(t/a)>e?I():L()}function I(){v.classList.remove("hidden")}function L(){v.classList.add("hidden")}function R(){let t=document.querySelector(".art-item").getBoundingClientRect();window.scrollBy({top:t.height*2,behavior:"smooth"})}document.querySelector(".art-btn-loadMore").addEventListener("click",G);document.getElementById("loader");let m=1;const h=8,w=async()=>{try{D();const e=await Y(m,h);F(),H(m,e.totalArtists,h),C(e.artists),document.querySelectorAll(".art-btn-learnMore").forEach(a=>a.addEventListener("click",q))}catch(e){console.error("Помилка в getListArtist:",e)}m>1&&R()};function G(e){e.preventDefault(),++m,L(),w()}w();const W="https://sound-wave.b.goit.study/api";async function _(){try{const t=(await g.get(`${W}/feedbacks`)).data.data;return Array.isArray(t)?t:[]}catch(e){return console.error("Ошибка при загрузке отзывов:",e),[]}}function K({rating:e,descr:t,name:a}){const r=Math.round(e);return`
+    <div class="feedback-card">
+      <div class="feedback-stars">${"★".repeat(r)+"☆".repeat(5-r)}</div>
+      <p class="feedback-text">${t}</p>
+      <p class="feedback-author">— ${a}</p>
+    </div>
+  `}async function V(){const e=document.querySelector("#feedback-list");if(!e)return;const t=await _();Array.isArray(t)&&(e.innerHTML=t.map(a=>`<div class="swiper-slide">${K(a)}</div>`).join(""),await new Promise(a=>setTimeout(a,0)),new A(".feedback-swiper",{modules:[M,E],loop:!0,slidesPerView:1,spaceBetween:20,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".swiper-pagination",clickable:!0}}))}const z=document.querySelector(".hero-btn");z.addEventListener("click",()=>{document.getElementById("artists").scrollIntoView({behavior:"smooth",block:"start"})});window.addEventListener("DOMContentLoaded",()=>{V()});
 //# sourceMappingURL=index.js.map
