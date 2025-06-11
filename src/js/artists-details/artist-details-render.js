@@ -26,12 +26,15 @@ export function renderArtistModal(artist, genres) {
   }
 
     const genresList = genresArray.length > 0
+
     ? `<ul class="genres-list-details">
         ${genresArray.map(genre => `<li class="genres-item-details">${genre}</li>`).join('')}
       </ul>`
     : '<p>Genres not specified</p>';
 
+
   // Функція рендеру треку з форматом часу
+
   const renderTrackItem = track => {
     const youtubeLinkHtml = track.movie
       ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.strTrack}">
@@ -40,6 +43,7 @@ export function renderArtistModal(artist, genres) {
             </svg>
          </a>`
       : '';
+
 
     return `
       <li class="track-item">
@@ -50,6 +54,8 @@ export function renderArtistModal(artist, genres) {
   };
 
   // Побудова списку альбомів
+
+  
   let albumsList = '';
   if (Array.isArray(artist.albumsList) && artist.albumsList.length > 0) {
     albumsList = `<ul class="albums-list">
@@ -63,9 +69,11 @@ export function renderArtistModal(artist, genres) {
             <span>Link</span>
           </li>`;
 
+
         const tracksList = tracks.length > 0
           ? tracks.map(renderTrackItem).join('')
           : '<li class="track-item">No tracks available</li>';
+
 
         return `
           <li class="album-item">
@@ -79,9 +87,11 @@ export function renderArtistModal(artist, genres) {
     </ul>`;
   }
 
+
   // Якщо немає albumsList, але є tracksList
   else if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
     const albumsMap = {};
+
 
     artist.tracksList.forEach(track => {
       const albumName = track.strAlbum || 'Unknown Album';
@@ -95,6 +105,7 @@ export function renderArtistModal(artist, genres) {
       ${Object.entries(albumsMap).map(([albumName, tracks]) => {
         const tracksHeader = `
           <li class="tracks-header">
+
             <span class="span-track">Track</span>
             <span class="span-time">Time</span>
             <span class="span-link">Link</span>
@@ -120,6 +131,7 @@ export function renderArtistModal(artist, genres) {
   }
 
   // Повертаємо готовий HTML модального вікна
+
   return `<div class="modal">
     <button class="close-modal-btn" type="button">
       <svg class="icon-close-btn" width="16" height="16">
@@ -149,10 +161,12 @@ export function renderArtistModal(artist, genres) {
       </li>
     </ul>
 
+
     <div class="biography-div">
       <h3 class="title-biography">Biography</h3>
       <p class="text-biography">${artist.strBiographyEN || 'Biography missing'}</p>
     </div>
+
 
     <div class="genres-div">
       <h3 class="title-genres"></h3>

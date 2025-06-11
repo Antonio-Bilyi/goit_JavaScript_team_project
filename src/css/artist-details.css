@@ -1,4 +1,3 @@
-
 /* Styles for Mobile devices */
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.25);
@@ -269,4 +268,3 @@ body.modal-open {
 .track-youtube:focus svg {
   transform: scale(1.2);
 }
-
