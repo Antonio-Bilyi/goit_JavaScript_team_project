@@ -1,79 +1,98 @@
-import{a as w}from"./assets/vendor-B2YOV0tR.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function n(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function a(s){if(s.ep)return;s.ep=!0;const o=n(s);fetch(s.href,o)}})();(()=>{const e={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),modal:document.querySelector("[data-menu]"),menuLinks:document.querySelectorAll(".mob-menu-link")};e.openModalBtn.addEventListener("click",t),e.closeModalBtn.addEventListener("click",t),e.menuLinks.forEach(n=>{n.addEventListener("click",()=>{t()})});function t(){e.modal.classList.toggle("is-open")}})();const $="https://sound-wave.b.goit.study/api";async function E(e){try{const t=await fetch(`${$}/artists/${e}`);if(!t.ok)throw new Error(`Failed to fetch artist details: ${t.status}`);return await t.json()}catch(t){throw console.error("API Error:",t),t}}function k(e){if(!e||typeof e!="object")return'<p class="error">No artist data available</p>';const t=e.startYear?e.endYear?`${e.startYear} - ${e.endYear}`:`${e.startYear} - present`:"Information missing",n=Array.isArray(e.genres)&&e.genres.length?`<ul class="genres-list-details">
-        ${e.genres.map(s=>`<li class="genres-item-details">${s}</li>`).join("")}
-      </ul>`:"<p>Genres not specified</p>",a=Array.isArray(e.albums)&&e.albums.length?`<ul class="albums-list">
-        ${e.albums.map(s=>{const o=`
-            <li class="tracks-header">
-              <span>Track</span>
-              <span>Time</span>
-              <span>Link</span>
-            </li>`,i=Array.isArray(s.tracks)?s.tracks.map(l=>{const u=l.youtube?`<a href="${l.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${l.title}">
-                      <svg width="16" height="16">
-                        <use href="../img/symbol-defs.svg#icon-Youtube"></use>
-                        <path d="M10 15l5-3-5-3v6z"/>
-                        <path d="M21.8 7.2s-.2-1.4-.8-2c-.7-.8-1.5-.8-1.9-.9C15 4 12 4 12 4h0s-3 0-6 .3c-.8.1-1.6.6-2.1 1.4-.4.6-.5 1.4-.5 1.7-.1.5-.1 1.1-.1 1.7v1.8c0 .6 0 1.2.1 1.7 0 .3.1 1.1.5 1.7.5.8 1.3 1.3 2.1 1.4 1.5.1 6 .3 6 .3s3 0 6-.3c.7-.1 1.4-.6 1.9-1.4.6-.7.8-2 .8-2v-3.6z"/>
-                      </svg>
-                    </a>`:"";return`
-                  <li class="track-item">
-                    <span class="track-title">${l.title}</span>
-                    <span class="track-duration">${l.duration}</span>
-                    <span class="track-youtube">${u}</span>
-                  </li>`}).join(""):"";return`
-            <li class="album-item">
-              <h4 class="album-title">${s.title}</h4>
-              <ul class="tracks-list">
-                ${o}
-                ${i}
-              </ul>
-            </li>`}).join("")}
-      </ul>`:"<p>There are no albums</p>";return`
-    <div class="modal">
-      <button class="close-modal-btn" type="button">
-        <svg class="icon-close-btn" width="16" height="16">
-          <use href="../img/symbol-defs.svg#icon-close-btn"></use>
-        </svg>
-      </button>
-
-      <h2 class="artist-name">${e.name}</h2>
-      <img class="img-details" src="${e.image}" alt="Photo ${e.name}" />
-
-      <ul class="artist-info-list">
-        <li><strong>Years active:</strong> ${t}</li>
-        <li><strong>Sex:</strong> ${e.gender||"Unknown"}</li>
-        <li><strong>Members:</strong> ${e.membersCount||"Unknown"}</li>
-        <li><strong>Country:</strong> ${e.country||"Unknown"}</li>
-      </ul>
-
-      <div class="biography-div">
-        <h3 class="title-biography">Biography</h3>
-        <p class="text-biography">${e.biography||"Biography missing"}</p>
-      </div>
-
-      <div class="genres-div">
-        <h3 class="title-genres">Genres</h3>
-        ${n}
-      </div>
-
-      <div class="albums-div">
-        <h3 class="title-album">Albums</h3>
-        ${a}
-      </div>
-    </div>
-  `}const r=document.querySelector(".modal-overlay");async function M(e){try{B();const t=await E(e);r.innerHTML=k(t),r.classList.add("is-open"),document.body.classList.add("modal-open"),A(),c.value=""}catch{I("Failed to load artist data.")}finally{q()}}function h(){r.classList.remove("is-open"),document.body.classList.remove("modal-open"),r.innerHTML="",S()}function p(e){e.target===r&&h()}function f(e){e.key==="Escape"&&h()}function A(){const e=r.querySelector(".close-modal-btn");e==null||e.addEventListener("click",h),r.addEventListener("click",p),window.addEventListener("keydown",f)}function S(){window.removeEventListener("keydown",f),r.removeEventListener("click",p)}function B(){r.innerHTML='<div class="loader">Loading...</div>'}function q(){const e=r.querySelector(".loader");e&&e.remove()}function I(e){alert(e)}const m=document.getElementById("testOpenBtn"),c=document.getElementById("artistIdInput");m==null||m.addEventListener("click",()=>{const e=c==null?void 0:c.value.trim();e?M(e):alert("Enter the artist ID.")});fetch("https://sound-wave.b.goit.study/api/artists").then(e=>e.json()).then(e=>{console.log(e),e.artists.forEach(t=>console.log(t._id,t.name))}).catch(console.error);async function T(e,t){const s="https://sound-wave.b.goit.study/api"+"/artists",o=await w(s,{params:{limit:t,page:e}});return{totalArtists:o.data.totalArtists,artists:o.data.artists}}const j=document.querySelector(".art-list-card"),y=document.querySelector(".art-btn-loadMore"),v=document.querySelector(".loader");function O(e){let n=document.documentElement.clientWidth<=768?50:145;const a=e.map(({_id:s,strArtist:o,strBiographyEN:i,strArtistThumb:l,genres:u})=>`
-  <li class="art-item">
-    <img class="art-img" src="${l}" alt="${o}" />
-    <ul class="art-genre-list">
-      ${u.map(L=>`<li class="art-genre-list-item">${L}</li>`).join("")}
+import{a as $}from"./assets/vendor-B2YOV0tR.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const a of s)if(a.type==="childList")for(const l of a.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function o(s){const a={};return s.integrity&&(a.integrity=s.integrity),s.referrerPolicy&&(a.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?a.credentials="include":s.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(s){if(s.ep)return;s.ep=!0;const a=o(s);fetch(s.href,a)}})();(()=>{const e={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),modal:document.querySelector("[data-menu]"),menuLinks:document.querySelectorAll(".mob-menu-link")};e.openModalBtn.addEventListener("click",t),e.closeModalBtn.addEventListener("click",t),e.menuLinks.forEach(o=>{o.addEventListener("click",()=>{t()})});function t(){e.modal.classList.toggle("is-open")}})();const w="https://sound-wave.b.goit.study/api";async function A(e){try{return(await fetch(`${w}/artists/${e}`)).json()}catch(t){throw console.error("API Error:",t),t}}function E(e,t){if(!e||typeof e!="object")return'<p class="error">No artist data available</p>';const o=e.intFormedYear?e.intDiedYear?`${e.intFormedYear} - ${e.intDiedYear}`:`${e.intFormedYear} - present`:"information missing",r=Array.isArray(t)?t:typeof t=="string"?t.split(",").map(n=>n.trim()):[],s=r.length>0?`<ul class="genres-list-details">
+        ${r.map(n=>`<li class="genres-item-details">${n}</li>`).join("")}
+      </ul>`:"<p>Genres not specified</p>",a=n=>{const i=n.movie?`<a href="${n.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${n.strTrack}">
+            <svg width="16" height="16">
+              <use href="../img/symbol-defs.svg#icon-Youtube"></use>
+            </svg>
+         </a>`:"";return`
+      <li class="track-item">
+        <span class="track-title">${n.strTrack}</span>
+        <span class="track-duration">${n.intDuration||"N/A"}</span>
+        <span class="track-youtube">${i}</span>
+      </li>`};let l="";if(Array.isArray(e.albumsList)&&e.albumsList.length>0)l=`<ul class="albums-list">
+      ${e.albumsList.map(n=>{const i=Array.isArray(n.tracks)?n.tracks:[],c=`
+          <li class="tracks-header">
+            <span>Track</span>
+            <span>Time</span>
+            <span>Link</span>
+          </li>`,m=i.length>0?i.map(a).join(""):'<li class="track-item">No tracks available</li>';return`
+          <li class="album-item">
+            <h4 class="album-title">${n.strAlbum} (${n.intYearReleased||"Unknown Year"})</h4>
+            <ul class="tracks-list">
+              ${c}
+              ${m}
+            </ul>
+          </li>`}).join("")}
+    </ul>`;else if(Array.isArray(e.tracksList)&&e.tracksList.length>0){const n={};e.tracksList.forEach(i=>{const c=i.strAlbum||"Unknown Album";n[c]||(n[c]=[]),n[c].push(i)}),l=`<ul class="albums-list">
+      ${Object.entries(n).map(([i,c])=>{const m=`
+          <li class="tracks-header">
+            <span>Track</span>
+            <span>Time</span>
+            <span>Link</span>
+          </li>`,k=c.map(a).join("");return`
+          <li class="album-item">
+            <h4 class="album-title">${i}</h4>
+            <ul class="tracks-list">
+              ${m}
+              ${k}
+            </ul>
+          </li>`}).join("")}
+    </ul>`}else l="<p>There are no albums</p>";return`<div class="modal">
+    <button class="close-modal-btn" type="button">
+      <svg class="icon-close-btn" width="16" height="16">
+        <use href="../img/symbol-defs.svg#icon-close-btn"></use>
+      </svg>
+    </button>
+    <h2 class="artist-name">${e.strArtist||"Unknown Artist"}</h2>
+    <img class="img-details" src="${e.strArtistThumb||"placeholder-image.jpg"}" alt="Photo ${e.strArtist||"Unknown Artist"}" />
+    <ul class="artist-info-list">
+      <li class="item-info">
+        <span class="info-label"><strong>Years active:</strong></span>
+        <span class="info-value">${o}</span>
+      </li>
+      <li class="item-info">
+        <span class="info-label"><strong>Sex:</strong></span>
+        <span class="info-value">${e.strGender||"Unknown"}</span>
+      </li>
+      <li class="item-info">
+        <span class="info-label"><strong>Members:</strong></span>
+        <span class="info-value">${e.intMembers||"Unknown"}</span>
+      </li>
+      <li class="item-info">
+        <span class="info-label"><strong>Country:</strong></span>
+        <span class="info-value">${e.strCountry||"Unknown"}</span>
+      </li>
     </ul>
-    <h4 class="art-list-name">${o}</h4>
-    <p class="art-list-biography">${i.slice(0,n)}...</p>
+    <div class="biography-div">
+      <h3 class="title-biography">Biography</h3>
+      <p class="text-biography">${e.strBiographyEN||"Biography missing"}</p>
+    </div>
+    <div class="genres-div">
+      <h3 class="title-genres">Genres</h3>
+      ${s}
+    </div>
+    <div class="albums-div">
+      <h3 class="albums">Albums</h3>
+      ${l}
+    </div>
+  </div>`}const d=document.querySelector(".modal-overlay");async function M(e){e.preventDefault();let t=e.target.dataset.id,o=e.target.dataset.style;console.log("ganre:",o);try{q();const r=await A(t);d.innerHTML=E(r,o),d.classList.add("is-open"),document.body.classList.add("modal-open"),S()}catch{j("Failed to load artist data.")}finally{T()}}function p(){d.classList.remove("is-open"),document.body.classList.remove("modal-open"),B()}function h(e){e.target===d&&p()}function g(e){e.key==="Escape"&&p()}function S(){const e=d.querySelector(".close-modal-btn");e==null||e.addEventListener("click",p),d.addEventListener("click",h),window.addEventListener("keydown",g)}function B(){window.removeEventListener("keydown",g),d.removeEventListener("click",h)}function q(){d.innerHTML='<div class="loader">Loading...</div>'}function T(){const e=d.querySelector(".loader");e&&e.remove()}function j(e){alert(e)}async function U(e,t){const s="https://sound-wave.b.goit.study/api"+"/artists",a=await $(s,{params:{limit:t,page:e}});return{totalArtists:a.data.totalArtists,artists:a.data.artists}}const Y=document.querySelector(".art-list-card"),y=document.querySelector(".art-btn-loadMore"),b=document.querySelector(".loader");function O(e){let o=document.documentElement.clientWidth<=768?50:145;const r=e.map(({_id:s,strArtist:a,strBiographyEN:l,strArtistThumb:n,genres:i})=>`
+  <li class="art-item">
+    <img class="art-img" src="${n}" alt="${a}" />
+    <ul class="art-genre-list">
+      ${i.map(c=>`<li class="art-genre-list-item">${c}</li>`).join("")}
+    </ul>
+    <h4 class="art-list-name">${a}</h4>
+    <p class="art-list-biography">${l.slice(0,o)}...</p>
     <button 
       type="button" 
       class="art-btn-learnMore" 
-      data-id="${s}">Learn More
+      data-id="${s}"
+      data-style="${i}"
+      >Learn More
       <svg class="icon" width="24" height="24">
         <use href="/img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
   </li>
-`).join("");j.insertAdjacentHTML("beforeend",a)}function C(){v.classList.add("loader")}function P(){v.classList.remove("loader")}function Y(e,t,n){Math.ceil(t/n)>e?U():x()}function U(){y.classList.remove("hidden")}function x(){y.classList.add("hidden")}function H(){let t=document.querySelector(".art-item").getBoundingClientRect();window.scrollBy({top:t.height*2,behavior:"smooth"})}document.querySelector(".art-btn-loadMore").addEventListener("click",N);document.getElementById("loader");let d=1;const g=8,b=async()=>{try{C();const e=await T(d,g);Y(d,e.totalArtists,g),P(),O(e.artists)}catch(e){console.error("Помилка в getListArtist:",e)}d>1&&H()};function N(e){e.preventDefault(),++d,b()}b();const D=document.querySelector(".hero-btn");D.addEventListener("click",()=>{document.getElementById("artists").scrollIntoView({behavior:"smooth",block:"start"})});
+`).join("");Y.insertAdjacentHTML("beforeend",r)}function N(){b.classList.add("loader")}function P(){b.classList.remove("loader")}function C(e,t,o){Math.ceil(t/o)>e?I():v()}function I(){y.classList.remove("hidden")}function v(){y.classList.add("hidden")}function D(){let t=document.querySelector(".art-item").getBoundingClientRect();window.scrollBy({top:t.height*2,behavior:"smooth"})}document.querySelector(".art-btn-loadMore").addEventListener("click",H);document.getElementById("loader");let u=1;const f=8,L=async()=>{try{N();const e=await U(u,f);P(),C(u,e.totalArtists,f),O(e.artists),document.querySelectorAll(".art-btn-learnMore").forEach(o=>o.addEventListener("click",M))}catch(e){console.error("Помилка в getListArtist:",e)}u>1&&D()};function H(e){e.preventDefault(),++u,v(),L()}L();const x=document.querySelector(".hero-btn");x.addEventListener("click",()=>{document.getElementById("artists").scrollIntoView({behavior:"smooth",block:"start"})});
 //# sourceMappingURL=index.js.map
