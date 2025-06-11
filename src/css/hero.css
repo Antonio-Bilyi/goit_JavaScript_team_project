@@ -2,7 +2,7 @@
   position: relative;
   background-color: #23132b;
   padding-top: 64px;
-  height: 1031px;
+  min-height: 1031px;
 
   background-image: url(../img/hero-mob.png);
   background-repeat: no-repeat;
@@ -91,11 +91,15 @@
 
 @media only screen and (min-width: 768px) {
   .hero-section {
-    padding-top: 32px;
-    min-height: 995px;
+    padding-top: 104px;
+    height: 1060px;
 
 
     background-image: url(../img/hero-tab.png);
+    background-repeat: no-repeat;
+    background-position: (100% - 32px) center;
+    background-size: auto;
+    
   }
 
   .hero-section::before {
@@ -132,13 +136,13 @@
 
 @media only screen and (min-width: 1440px) {
   .hero-section {
+    padding-top: 220px;
     min-height: 900px;
 
-
     background-image: url(../img/hero-desktop.png);
-
-    background-position: right;
+    background-repeat: no-repeat;
     background-size: auto;
+    background-position: calc(100% - 64px) center;
   }
 
   .hero-section::before {
