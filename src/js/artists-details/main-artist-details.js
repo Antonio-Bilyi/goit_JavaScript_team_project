@@ -1,13 +1,17 @@
 import { fetchArtistDetails } from './artist-details-api.js';
 import { renderArtistModal } from './artist-details-render.js';
-const modalOverlay = document.querySelector('.modal-overlay');
-  
 
- export async function openArtistModal(event) {
+const modalOverlay = document.querySelector('.modal-overlay');
+
+export async function openArtistModal(event) {
   event.preventDefault();
   let artistId = event.target.dataset.id;
-  let artistGenres = event.target.dataset.style;
-  console.log("ganre:", artistGenres);
+  let genre = event.target.dataset.style;
+
+  let artistGenres = genre ? genre.split(',').map(g => g.trim()) : [];
+  console.log("artistGenres:", artistGenres);
+
+
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
@@ -16,7 +20,6 @@ const modalOverlay = document.querySelector('.modal-overlay');
     document.body.classList.add('modal-open');
     
     addEventListeners();
-  
   } catch (error) {
  
     showToast('Failed to load artist data.');
@@ -27,7 +30,7 @@ const modalOverlay = document.querySelector('.modal-overlay');
 function closeModal() {
   modalOverlay.classList.remove('is-open');
   document.body.classList.remove('modal-open');
-  // modalOverlay.innerHTML = ''; // очищення
+
   removeEventListeners();
 }
 function handleOverlayClick(event) {
@@ -54,5 +57,6 @@ function hideLoader() {
   if (loader) loader.remove();
 }
 function showToast(message) {
-  alert(message);
+
+  alert(message); 
 };
