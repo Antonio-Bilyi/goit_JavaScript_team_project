@@ -2,7 +2,7 @@ const artistsContainer = document.querySelector(".art-list-card");
 const loadMore = document.querySelector(".art-btn-loadMore");
 const load = document.querySelector(".loader");
 
-import iconSvg from './assets/symbol-defs-DrsLeCxm.svg';
+import icon from '../../img/symbol-defs.svg';
 
 export function markupCardArtist(data) {
     let widthWindows = document.documentElement.clientWidth;
@@ -23,9 +23,8 @@ export function markupCardArtist(data) {
       data-style="${genres}"
       >Learn More
       <svg class="icon" width="24" height="24">
-        <use href="${iconSvg}#icon-caret-right"></use>
-        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
-      </svg>
+        <use href="${icon}#icon-caret-right"></use>
+        </svg>
     </button>
   </li>
 `).join('');
