@@ -1,4 +1,4 @@
-export function renderArtistModal(artist) {
+export function renderArtistModal(artist, genres) {
   if (!artist || typeof artist !== 'object') {
     return '<p class="error">No artist data available</p>';
   }
@@ -9,9 +9,9 @@ export function renderArtistModal(artist) {
       : `${artist.intFormedYear} - present`
     : 'information missing';
   // Обробка жанрів (масив або рядок)
-  
-  const genresArray = Array.isArray(artist.genres)
-    ? artist.genres
+  // const genresArray = [genres];
+  const genresArray = Array.isArray(genres)
+    ? genres
     : typeof genres === 'string'
     ? genres.split(',').map(g => g.trim())
     : [];
