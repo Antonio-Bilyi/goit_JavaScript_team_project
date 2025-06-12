@@ -1,84 +1,103 @@
+.feedback-section {
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+}
 
+.feedback-card {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 866px;
+}
 
+.feedback-text {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
 
-        .feedback-section {
-            background-color: #0f0f0f;
-            padding: 60px 20px;
-            text-align: center;
-            color: #fff;
-        }
-    
-        .feedback-swiper {
-            position: relative;
-            max-width: 1440px;
-            margin: 0 auto;
-            overflow: hidden;
-            /* чтобы ничего не торчало за границы */
-        }
-    
-        .feedback-card {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-    
-        /* Звёздочки */
-        .feedback-stars {
-            color: #9B5DE5;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-    
-        /* Текст отзыва */
-        .feedback-text {
-            font-size: 20px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-    
-        /* Автор */
-        .feedback-author {
-            font-size: 16px;
-            color: #ccc;
-            margin-top: 10px;
-        }
-    
-        /* Стрелки */
-        .feedback-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            z-index: 10;
-            font-size: 30px;
-            color: white;
-        }
-    
-        .swiper-button-prev {
-            left: 20px;
-        }
-    
-        .swiper-button-next {
-            right: 20px;
-        }
-    
-        /* Буллеты */
-        .custom-pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-    
-        .custom-pagination .dot {
-            width: 10px;
-            height: 10px;
-            background-color: #555;
-            border-radius: 50%;
-            transition: background 0.3s;
-        }
-    
-        .custom-pagination .dot.active {
-            background-color: #fff;
-        }
-    
-        /* Убрать: .swiper-wrapper { display: flex; } */
+.feedback-author {
+    font-size: 16px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.star-rating__star {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    mask: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>') no-repeat center;
+    margin-right: 4px;
+}
+
+.feedback-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.swiper-button-prev {
+    left: 30px;
+    background-image: url('/icons/arrow-left.svg');
+}
+
+.swiper-button-next {
+    right: 30px;
+    background-image: url('/icons/arrow-right.svg');
+}
+
+.swiper-pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #555;
+    opacity: 1;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+/* Адаптив */
+@media (max-width: 767px) {
+    .feedback-card {
+        max-width: 288px;
+        padding: 0 20px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none !important;
+    }
+
+    .swiper-pagination {
+        margin-top: 20px;
+    }
+}
