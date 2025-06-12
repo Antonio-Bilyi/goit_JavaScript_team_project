@@ -7,7 +7,6 @@ export async function openArtistModal(event) {
   event.preventDefault();
   
   const button = event.target.closest('.art-btn-learnMore');
-  console.log(button);
   if (!button) return;
 
   const artistId = button.dataset.id;
