@@ -2,6 +2,8 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'css-star-rating/css/star-rating.min.css';
+
 import { Navigation, Pagination } from 'swiper/modules';
 import { fetchFeedbacks } from './feedback-api';
 import { createFeedbackMarkup } from './feedback-render';
@@ -36,4 +38,14 @@ export async function initFeedbackSlider() {
       clickable: true,
     },
   });
+
+  document.querySelectorAll('.star-rating').forEach(container => {
+    const rating = Number(container.dataset.rating) || 0;
+    const stars = container.querySelectorAll('.star-rating__star');
+  
+    stars.forEach((star, index) => {
+      star.style.backgroundColor = index < rating ? '#FFD700' : '#555';
+    });
+  });
+
 }
