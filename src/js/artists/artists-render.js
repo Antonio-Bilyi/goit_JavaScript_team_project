@@ -1,7 +1,7 @@
 const artistsContainer = document.querySelector(".art-list-card");
 const loadMore = document.querySelector(".art-btn-loadMore");
 const load = document.querySelector(".loader");
-import icon from '../../assets/symbol-defs.svg';
+import icon from '../../img/symbol-defs.svg';
 
 export function markupCardArtist(data) {
     let widthWindows = document.documentElement.clientWidth;
