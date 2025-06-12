@@ -7,20 +7,15 @@ export async function openArtistModal(event) {
   event.preventDefault();
   
   const button = event.target.closest('.art-btn-learnMore');
+  console.log(button);
   if (!button) return;
 
   const artistId = button.dataset.id;
-  const genre = button.dataset.style;
-
-
-  let artistGenres = genre ? genre.split(',').map(g => g.trim()) : [];
-  console.log("artistGenres:", artistGenres);
-
-
+ 
   try {
     showLoader();
     const artist = await fetchArtistDetails(artistId);
-    modalOverlay.innerHTML = renderArtistModal(artist, artistGenres);
+    modalOverlay.innerHTML = renderArtistModal(artist);
     modalOverlay.classList.add('is-open');
     document.body.classList.add('modal-open');
     
