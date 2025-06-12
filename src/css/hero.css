@@ -1,7 +1,8 @@
 .hero-section {
   position: relative;
   background-color: #23132b;
-  padding-top: 64px;
+  padding-top: 68px;
+  margin-top: 64px;
   min-height: 1031px;
 
   background-image: url(../img/hero-mob.png);
@@ -17,7 +18,7 @@
   left: 0;
   right: 0;
   top: 0;
-  height: 80px; /* висота верхнього градієнта */
+  height: 20px; /* висота верхнього градієнта */
   background: linear-gradient(to bottom, rgba(6, 3, 7, 1), rgba(35, 19, 43, 0));
   pointer-events: none;
   z-index: 2;
@@ -91,8 +92,9 @@
 
 @media only screen and (min-width: 768px) {
   .hero-section {
-    padding-top: 104px;
-    height: 1060px;
+    padding-top: 32px;
+    margin-top: 72px;
+    min-height: 995px;
 
     background-image: url(../img/hero-tab.png);
     background-repeat: no-repeat;
@@ -101,7 +103,7 @@
   }
 
   .hero-section::before {
-    height: 125px;
+    height: 50px;
   }
 
   .hero-section::after {
@@ -144,7 +146,7 @@
   }
 
   .hero-section::before {
-    height: 80px;
+    height: 36px;
   }
 
   .hero-title {
