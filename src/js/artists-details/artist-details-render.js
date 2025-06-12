@@ -4,17 +4,17 @@ export function renderArtistModal(artist, genres) {
   }
   // Роки існування
   const yearsExistence = artist.intFormedYear
-    ? (artist.intDiedYear
-        ? `${artist.intFormedYear} - ${artist.intDiedYear}`
-        : `${artist.intFormedYear} - present`)
+    ? artist.intDiedYear
+      ? `${artist.intFormedYear} - ${artist.intDiedYear}`
+      : `${artist.intFormedYear} - present`
     : 'information missing';
   // Обробка жанрів (масив або рядок)
   // const genresArray = [genres];
   const genresArray = Array.isArray(genres)
     ? genres
     : typeof genres === 'string'
-      ? genres.split(',').map(g => g.trim())
-      : [];
+    ? genres.split(',').map(g => g.trim())
+    : [];
 
   //  Функція для форматування мілісекунд у хвилини:секунди
   function formatDuration(ms) {
@@ -25,13 +25,14 @@ export function renderArtistModal(artist, genres) {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   }
 
-    const genresList = genresArray.length > 0
-
-    ? `<ul class="genres-list-details">
-        ${genresArray.map(genre => `<li class="genres-item-details">${genre}</li>`).join('')}
+  const genresList =
+    genresArray.length > 0
+      ? `<ul class="genres-list-details">
+        ${genresArray
+          .map(genre => `<li class="genres-item-details">${genre}</li>`)
+          .join('')}
       </ul>`
-    : '<p>Genres not specified</p>';
-
+      : '<p>Genres not specified</p>';
 
   // Функція рендеру треку з форматом часу
 
@@ -44,7 +45,6 @@ export function renderArtistModal(artist, genres) {
          </a>`
       : '';
 
-
     return `
       <li class="track-item">
         <span class="track-title">${track.strTrack}</span>
@@ -55,43 +55,43 @@ export function renderArtistModal(artist, genres) {
 
   // Побудова списку альбомів
 
-  
   let albumsList = '';
   if (Array.isArray(artist.albumsList) && artist.albumsList.length > 0) {
     albumsList = `<ul class="albums-list">
-      ${artist.albumsList.map(album => {
-        const tracks = Array.isArray(album.tracks) ? album.tracks : [];
+      ${artist.albumsList
+        .map(album => {
+          const tracks = Array.isArray(album.tracks) ? album.tracks : [];
 
-        const tracksHeader = `
+          const tracksHeader = `
           <li class="tracks-header">
             <span>Track</span>
             <span>Time</span>
             <span>Link</span>
           </li>`;
 
+          const tracksList =
+            tracks.length > 0
+              ? tracks.map(renderTrackItem).join('')
+              : '<li class="track-item">No tracks available</li>';
 
-        const tracksList = tracks.length > 0
-          ? tracks.map(renderTrackItem).join('')
-          : '<li class="track-item">No tracks available</li>';
-
-
-        return `
+          return `
           <li class="album-item">
-            <h4 class="album-title">${album.strAlbum} (${album.intYearReleased || 'Unknown Year'})</h4>
+            <h4 class="album-title">${album.strAlbum} (${
+            album.intYearReleased || 'Unknown Year'
+          })</h4>
             <ul class="tracks-list">
               ${tracksHeader}
               ${tracksList}
             </ul>
           </li>`;
-      }).join('')}
+        })
+        .join('')}
     </ul>`;
   }
-
 
   // Якщо немає albumsList, але є tracksList
   else if (Array.isArray(artist.tracksList) && artist.tracksList.length > 0) {
     const albumsMap = {};
-
 
     artist.tracksList.forEach(track => {
       const albumName = track.strAlbum || 'Unknown Album';
@@ -102,8 +102,9 @@ export function renderArtistModal(artist, genres) {
     });
 
     albumsList = `<ul class="albums-list">
-      ${Object.entries(albumsMap).map(([albumName, tracks]) => {
-        const tracksHeader = `
+      ${Object.entries(albumsMap)
+        .map(([albumName, tracks]) => {
+          const tracksHeader = `
           <li class="tracks-header">
 
             <span class="span-track">Track</span>
@@ -111,9 +112,9 @@ export function renderArtistModal(artist, genres) {
             <span class="span-link">Link</span>
           </li>`;
 
-        const tracksList = tracks.map(renderTrackItem).join('');
+          const tracksList = tracks.map(renderTrackItem).join('');
 
-        return `
+          return `
           <li class="album-item">
             <h4 class="album-title">${albumName}</h4>
             <ul class="tracks-list">
@@ -121,7 +122,8 @@ export function renderArtistModal(artist, genres) {
               ${tracksList}
             </ul>
           </li>`;
-      }).join('')}
+        })
+        .join('')}
     </ul>`;
   }
 
@@ -140,23 +142,25 @@ export function renderArtistModal(artist, genres) {
     </button>
 
     <h2 class="artist-name">${artist.strArtist || 'Unknown Artist'}</h2>
-    <img class="img-details" src="${artist.strArtistThumb || 'placeholder-image.jpg'}" alt="Photo ${artist.strArtist || 'Unknown Artist'}" />
+    <img class="img-details" src="${
+      artist.strArtistThumb || 'placeholder-image.jpg'
+    }" alt="Photo ${artist.strArtist || 'Unknown Artist'}" />
 
     <ul class="artist-info-list">
       <li class="item-info">
-        <span class="info-label"><strong>Years active:</strong></span>
+        <span class="info-label"><strong>Years active</strong></span>
         <span class="info-value">${yearsExistence}</span>
       </li>
       <li class="item-info">
-        <span class="info-label"><strong>Sex:</strong></span>
+        <span class="info-label"><strong>Sex</strong></span>
         <span class="info-value">${artist.strGender || 'Unknown'}</span>
       </li>
       <li class="item-info">
-        <span class="info-label"><strong>Members:</strong></span>
+        <span class="info-label"><strong>Members</strong></span>
         <span class="info-value">${artist.intMembers || 'Unknown'}</span>
       </li>
       <li class="item-info">
-        <span class="info-label"><strong>Country:</strong></span>
+        <span class="info-label"><strong>Country</strong></span>
         <span class="info-value">${artist.strCountry || 'Unknown'}</span>
       </li>
     </ul>
@@ -164,7 +168,9 @@ export function renderArtistModal(artist, genres) {
 
     <div class="biography-div">
       <h3 class="title-biography">Biography</h3>
-      <p class="text-biography">${artist.strBiographyEN || 'Biography missing'}</p>
+      <p class="text-biography">${
+        artist.strBiographyEN || 'Biography missing'
+      }</p>
     </div>
 
 
