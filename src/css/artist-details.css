@@ -331,6 +331,7 @@ body.modal-open {
   margin-bottom: 16px;
   max-height: 200px; /* або інше значення, яке тобі підходить */
   overflow-y: auto;
+  margin-bottom: 24px;
 }
 
   .albums {
@@ -429,6 +430,7 @@ body.modal-open {
     margin-left: 64px;
     margin-right: 32px;
     /* Відстань 32px праворуч від фото */
+    margin-bottom: 48px;
     border-radius: 16px;
     object-fit: cover;
   }
