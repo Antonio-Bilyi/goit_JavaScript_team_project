@@ -94,12 +94,10 @@
     padding-top: 104px;
     height: 1060px;
 
-
     background-image: url(../img/hero-tab.png);
     background-repeat: no-repeat;
     background-position: (100% - 32px) center;
     background-size: auto;
-    
   }
 
   .hero-section::before {
