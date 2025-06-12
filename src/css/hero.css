@@ -54,7 +54,7 @@
   margin-bottom: 24px;
 }
 
-.hero-btn {
+.hero-link {
   border: none;
   border-radius: 12px;
   padding: 10px 24px;
@@ -79,7 +79,7 @@
   transition: opacity 250ms ease;
 }
 
-.hero-btn:hover {
+.hero-link:hover {
   opacity: 0.6;
 }
 
@@ -94,12 +94,10 @@
     padding-top: 104px;
     height: 1060px;
 
-
     background-image: url(../img/hero-tab.png);
     background-repeat: no-repeat;
     background-position: (100% - 32px) center;
     background-size: auto;
-    
   }
 
   .hero-section::before {
@@ -129,7 +127,7 @@
     font-size: 20px;
   }
 
-  .hero-btn {
+  .hero-link {
     width: 246px;
   }
 }

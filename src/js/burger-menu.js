@@ -17,5 +17,11 @@
 
   function toggleModal() {
     refs.modal.classList.toggle('is-open');
+
+    if (refs.modal.classList.contains('is-open')) {
+      document.body.classList.add('body-lock');
+    } else {
+      document.body.classList.remove('body-lock');
+    }
   }
 })();
