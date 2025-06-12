@@ -1,4 +1,4 @@
-import icon from './../../img/symbol-defs.svg';
+import icon from '../../img/symbol-defs.svg';
 
 export function renderArtistModal(artist, genres) {
   if (!artist || typeof artist !== 'object') {
