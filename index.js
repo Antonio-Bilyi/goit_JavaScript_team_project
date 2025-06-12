@@ -2,7 +2,7 @@ import{a as g,S as A,N as M,P as E}from"./assets/vendor-Cj1XzFCq.js";(function()
         ${r.map(s=>`<li class="genres-item-details">${s}</li>`).join("")}
       </ul>`:"<p>Genres not specified</p>",d=s=>{const i=s.movie?`<a href="${s.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${s.strTrack}">
             <svg width="16" height="16">
-              <use href="./img/symbol-defs.svg#icon-Youtube"></use>
+              <use href="/img/symbol-defs.svg#icon-Youtube"></use>
             </svg>
          </a>`:"";return`
       <li class="track-item">
@@ -41,7 +41,7 @@ import{a as g,S as A,N as M,P as E}from"./assets/vendor-Cj1XzFCq.js";(function()
     </ul>`}else u="<p>There are no albums</p>";return`<div class="modal">
     <button class="close-modal-btn" type="button">
       <svg class="icon-close-btn" width="16" height="16">
-        <use href="./img/symbol-defs.svg#icon-close-btn"></use>
+        <use href="/img/symbol-defs.svg#icon-close-btn"></use>
       </svg>
     </button>
 
@@ -98,7 +98,7 @@ import{a as g,S as A,N as M,P as E}from"./assets/vendor-Cj1XzFCq.js";(function()
       data-style="${s}"
       >Learn More
       <svg class="icon" width="24" height="24">
-        <use href="./img/symbol-defs.svg#icon-caret-right"></use>
+        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
   </li>
