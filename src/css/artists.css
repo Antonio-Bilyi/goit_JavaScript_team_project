@@ -5,15 +5,20 @@
 }
 
 .art-main {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
 }
 
+.art-div-title {
+  margin-top: 16px;
+}
+
 .art-main-title {
-  margin-top: 16;
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
-  font-size: 60px;
+  font-size: 44px;
   line-height: 120%;
   letter-spacing: -0.01em;
 }
@@ -46,6 +51,7 @@
 }
 
 .art-genre-list-item {
+  font-family: 'IBM Plex Sans', sans-serif;
   padding: 4px 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
@@ -55,12 +61,16 @@
 }
 
 .art-list-name {
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
   font-size: 32px;
+  line-height: 130%;
+  letter-spacing: -0.01em;
   margin-top: 16px;
 }
 
 .art-list-biography {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
@@ -73,6 +83,7 @@
   column-gap: 8px;
   align-items: center;
   justify-content: space-between;
+  font-family: 'IBM Plex Sans', sans-serif;
   margin-top: 24px;
   color: #fff;
   background-color: transparent;
@@ -202,7 +213,12 @@
   .art-item {
     width: 704px;
   }
-
+  .art-main-title {
+    font-size: 44px;
+  }
+  /* .art-main-title {
+    width: 704px;
+  } */
   .art-btn-loadMore {
     width: 340px;
     margin-top: 64px;
@@ -214,7 +230,10 @@
     padding-top: 112px;
     padding-bottom: 112px;
   }
-
+  .art-main-title {
+    width: 523px;
+    font-size: 60px;
+  }
   .art-list-card {
     margin-top: 80px;
   }
