@@ -1,0 +1,146 @@
+.feedback-section {
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.feedback-swiper {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.feedback-card {
+  margin: 0 auto;
+  position: relative;
+  /* ширина буде змінюватись через брейкпоінти */
+}
+
+/* Звёздочки */
+.star-rating {
+  display: inline-flex;
+}
+
+.star-rating__star {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  mask: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>') no-repeat center;
+  background-color: #555;
+  /* сірі зірки */
+  margin-right: 4px;
+}
+
+.star-rating[data-rating] .star-rating__star:nth-child(-n + attr(data-rating number)) {
+  background-color: #FFD700;
+  /* заповнені зірки - золоті */
+}
+
+/* Текст отзыва */
+.feedback-text {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Автор */
+.feedback-author {
+  font-size: 16px;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+/* Стрелки */
+.feedback-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  font-size: 30px;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.feedback-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Позиціонування стрілок на десктопі */
+.swiper-button-prev {
+  left: calc(
+    50% - 433px - 175px
+  ); /* 433px = половина 866px + 1 (щоб трохи поправити) */
+}
+
+.swiper-button-next {
+  right: calc(50% - 433px - 175px);
+}
+
+/* Буллеты */
+.swiper-pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #555;
+  opacity: 1;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #fff;
+}
+
+/* Брейкпоінти для фіксованої ширини відгуків */
+@media (min-width: 1024px) {
+  .feedback-card {
+    max-width: 866px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .feedback-card {
+    max-width: 518px;
+  }
+  /* Позиціонування стрілок на планшеті */
+  .swiper-button-prev {
+    left: calc(50% - 259px - 100px); /* 259px = половина 518px */
+  }
+  .swiper-button-next {
+    right: calc(50% - 259px - 100px);
+  }
+}
+
+@media (max-width: 767px) {
+  .feedback-card {
+    max-width: 288px;
+    padding: 0 20px;
+  }
+
+  /* Ховаємо стрілки на мобільних */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  .swiper-pagination {
+    margin-top: 20px;
+  }
+}
