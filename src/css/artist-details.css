@@ -268,3 +268,184 @@ body.modal-open {
 .track-youtube:focus svg {
   transform: scale(1.2);
 }
+
+/* Планшетна версія */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+
+  .modal {
+    max-width: 702px;
+    padding: 16px 8px;
+  }
+
+  .img-details {
+    width: 660px;
+    max-width: 100%;
+  }
+
+  .artist-name {
+    font-size: 22px;
+  }
+
+  .info-label,
+  .info-value {
+    font-size: 20px;
+  }
+
+  .title-biography,
+  .text-biography {
+    font-size: 20px;
+  }
+
+  .genres-item-details {
+    padding: 6px 12px;
+    font-size: 18px;
+  }
+
+  .albums {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .albums-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+    max-width: 720px;
+  }
+
+  .albums-list li {
+    width: 100%;
+  }
+
+  .album-item {
+    max-width: 100%;
+    padding: 14px 11px;
+    border-radius: 16px;
+    margin-bottom: 0;
+  }
+
+  .album-title {
+    font-size: 18px;
+  }
+
+  .tracks-header {
+    font-size: 12px;
+    padding: 6px 0 6px 12px;
+  }
+
+  .track-item {
+    font-size: 14px;
+    padding: 10px 0 10px 12px;
+  }
+
+
+  ul.artist-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  ul.artist-info-list>li.item-info {
+    flex: 0 0 calc(50% - 12px);
+    box-sizing: border-box;
+  }
+
+  .artist-info-list {
+    flex-direction: row;
+    /* Розташовуємо елементи в ряд */
+    flex-wrap: wrap;
+    /* Дозволяємо переносити на новий рядок */
+    gap: 24px;
+    /* Відстань між елементами */
+  }
+
+  .item-info {
+    flex: 0 0 calc(50% - 12px);
+    /* 2 елементи в рядок із врахуванням gap */
+    box-sizing: border-box;
+    /* Щоб padding/margin не збільшували ширину */
+  }
+
+  .genres-list-details {
+    margin-bottom: 48px;
+  }
+}
+
+/* Компютерна версія */
+@media (min-width: 1025px) {
+  .modal {
+    max-width: 1312px;
+    padding: 24px 32px;
+  }
+
+  .artist-name {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .img-details {
+    float: left;
+    max-width: 576px;
+    width: 100%;
+    height: auto;
+    margin-left: 64px;
+    margin-right: 32px;
+    /* Відстань 32px праворуч від фото */
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .artist-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* вертикальний і горизонтальний відступ між li */
+  }
+
+  .artist-info-list>li.item-info {
+    flex: 0 0 calc(50% - 16px);
+    /* по половині ширини мінус відступ */
+    box-sizing: border-box;
+  }
+
+  .biography-div {
+    max-height: 162px;
+    overflow-y: auto;
+  }
+
+  .albums-div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    width: 1184px;
+    padding-left: 64px;
+  }
+
+  /* Робимо список альбомів грідом 4 колонки */
+  .albums-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 0;
+    list-style: none;
+    max-width: 1312px;
+    /* або ширина модалки */
+  }
+
+  .album-item {
+    width: 100%;
+    /* щоб займати всю клітинку */
+    border-radius: 16px;
+    padding: 14px 11px;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+
+}

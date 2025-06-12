@@ -5,8 +5,13 @@ const modalOverlay = document.querySelector('.modal-overlay');
 
 export async function openArtistModal(event) {
   event.preventDefault();
-  let artistId = event.target.dataset.id;
-  let genre = event.target.dataset.style;
+  
+  const button = event.target.closest('.art-btn-learnMore');
+  if (!button) return;
+
+  const artistId = button.dataset.id;
+  const genre = button.dataset.style;
+
 
   let artistGenres = genre ? genre.split(',').map(g => g.trim()) : [];
   console.log("artistGenres:", artistGenres);
