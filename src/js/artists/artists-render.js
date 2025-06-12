@@ -21,7 +21,7 @@ export function markupCardArtist(data) {
       data-style="${genres}"
       >Learn More
       <svg class="icon" width="24" height="24">
-        <use href="./img/symbol-defs.svg#icon-caret-right"></use>
+        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
   </li>
