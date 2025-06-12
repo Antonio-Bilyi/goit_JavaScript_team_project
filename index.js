@@ -98,7 +98,7 @@ import{a as g,S as A,N as M,P as E}from"./assets/vendor-Cj1XzFCq.js";(function()
       data-style="${s}"
       >Learn More
       <svg class="icon" width="24" height="24">
-        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
+        <use href="./img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
   </li>
