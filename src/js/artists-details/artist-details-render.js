@@ -1,3 +1,5 @@
+import icon from './../../img/symbol-defs.svg';
+
 export function renderArtistModal(artist, genres) {
   if (!artist || typeof artist !== 'object') {
     return '<p class="error">No artist data available</p>';
@@ -40,7 +42,7 @@ export function renderArtistModal(artist, genres) {
     const youtubeLinkHtml = track.movie
       ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.strTrack}">
             <svg width="16" height="16">
-              <use href="/img/symbol-defs.svg#icon-Youtube"></use>
+              <use href="${icon}#icon-caret-right"></use>
             </svg>
          </a>`
       : '';
@@ -137,7 +139,7 @@ export function renderArtistModal(artist, genres) {
   return `<div class="modal">
     <button class="close-modal-btn" type="button">
       <svg class="icon-close-btn" width="16" height="16">
-        <use href="/img/symbol-defs.svg#icon-close-btn"></use>
+        <use href="${icon}#icon-caret-right"></use>
       </svg>
     </button>
 
