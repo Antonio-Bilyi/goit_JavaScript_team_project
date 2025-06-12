@@ -3,7 +3,6 @@ const loadMore = document.querySelector(".art-btn-loadMore");
 const load = document.querySelector(".loader");
 
 import iconSvg from './assets/symbol-defs-DrsLeCxm.svg';
-b
 
 export function markupCardArtist(data) {
     let widthWindows = document.documentElement.clientWidth;
@@ -24,9 +23,7 @@ export function markupCardArtist(data) {
       data-style="${genres}"
       >Learn More
       <svg class="icon" width="24" height="24">
-
         <use href="${iconSvg}#icon-caret-right"></use>
-=======
         <use href="/img/symbol-defs.svg#icon-caret-right"></use>
       </svg>
     </button>
