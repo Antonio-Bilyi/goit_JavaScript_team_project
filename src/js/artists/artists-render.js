@@ -1,6 +1,7 @@
 const artistsContainer = document.querySelector(".art-list-card");
 const loadMore = document.querySelector(".art-btn-loadMore");
 const load = document.querySelector(".loader");
+import icon from '../../img/symbol-defs.svg';
 
 export function markupCardArtist(data) {
     let widthWindows = document.documentElement.clientWidth;
@@ -18,10 +19,9 @@ export function markupCardArtist(data) {
       type="button" 
       class="art-btn-learnMore" 
       data-id="${_id}" 
-      data-style="${genres}"
       >Learn More
       <svg class="icon" width="24" height="24">
-        <use href="/img/symbol-defs.svg#icon-caret-right"></use>
+        <use href="${icon}#icon-caret-right"></use>
       </svg>
     </button>
   </li>
