@@ -104,9 +104,8 @@
   display: flex;
   flex-direction: row;
   column-gap: 8px;
+  font-family: 'IBM Plex Sans', sans-serif;
   align-items: center;
-  padding-left: 0;
-  padding-right: 0;
   justify-content: center;
   margin-top: 32px;
   border: none;
@@ -216,9 +215,7 @@
   .art-main-title {
     font-size: 44px;
   }
-  /* .art-main-title {
-    width: 704px;
-  } */
+
   .art-btn-loadMore {
     width: 340px;
     margin-top: 64px;
