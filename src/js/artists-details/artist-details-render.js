@@ -42,7 +42,7 @@ export function renderArtistModal(artist, genres) {
     const youtubeLinkHtml = track.movie
       ? `<a href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${track.strTrack}">
             <svg width="16" height="16">
-              <use href="${icon}#icon-caret-right"></use>
+              <use href="${icon}#icon-Youtube"></use>
             </svg>
          </a>`
       : '';
@@ -139,7 +139,7 @@ export function renderArtistModal(artist, genres) {
   return `<div class="modal">
     <button class="close-modal-btn" type="button">
       <svg class="icon-close-btn" width="16" height="16">
-        <use href="${icon}#icon-caret-right"></use>
+        <use href="${icon}#icon-close-btn"></use>
       </svg>
     </button>
 
