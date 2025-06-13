@@ -11,18 +11,19 @@
 }
 
 .art-main-title {
-  margin-top: 16;
+  font-family: "Epilogue", sans-serif;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 120%;
+  font-size: 44px;
+  line-height: 1.2;
   letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .art-list-card {
   margin-top: 32px;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
   gap: 32px;
   flex-wrap: wrap;
 }
