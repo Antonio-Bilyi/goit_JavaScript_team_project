@@ -141,13 +141,13 @@
 .loader:before {
   animation: ball1 1s infinite;
   background-color: #fff;
-  box-shadow: 30px 0 0 #23132b;
+  box-shadow: 30px 0 0 #764191;
   margin-bottom: 10px;
 }
 
 .loader:after {
   animation: ball2 1s infinite;
-  background-color: #23132b;
+  background-color: #764191;
   box-shadow: 30px 0 0 #fff;
 }
 
