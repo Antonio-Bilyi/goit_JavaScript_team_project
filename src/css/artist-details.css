@@ -37,7 +37,7 @@ body.modal-open {
   color: #ffffff;
   border-radius: 16px;
   padding: 16px 8px;
-  max-width: 100%;
+  /* max-width: 100%; */
   min-height: 300px;
   max-height: calc(100vh - 128px);
   box-sizing: border-box;
@@ -298,7 +298,7 @@ body.modal-open {
 
   .modal {
     width: 702px;
-    max-width: 100%;
+    /* max-width: 100%; */
     padding: 16px 8px;
   }
 
@@ -430,7 +430,7 @@ body.modal-open {
     width: 1312px;
     box-sizing: border-box;
   overflow-x: hidden;
-        max-width: 100%;
+        /* max-width: 100%; */
     padding: 24px 32px;
   }
 

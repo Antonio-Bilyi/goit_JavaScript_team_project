@@ -3,11 +3,12 @@
   background-color: #23132b;
   padding-top: 68px;
   margin-top: 64px;
-  min-height: 1031px;
+  height: 1031px;
+  
 
   background-image: url(../img/hero-mob.png);
   background-repeat: no-repeat;
-  background-position: center 620px;
+  background-position: bottom;
   background-size: auto;
 }
 
