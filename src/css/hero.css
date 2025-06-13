@@ -7,9 +7,8 @@
 
   background-image: url(../img/hero-mob.png);
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center 620px;
   background-size: auto;
-  z-index: 1;
 }
 
 .hero-section::before {
@@ -98,7 +97,8 @@
 
     background-image: url(../img/hero-tab.png);
     background-repeat: no-repeat;
-    background-position: (100% - 32px) center;
+    background-position: center 360px;
+    /* background-position: (100% - 32px) center; */
     background-size: auto;
   }
 
