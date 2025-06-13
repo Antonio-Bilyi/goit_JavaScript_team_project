@@ -32,17 +32,17 @@ export async function initFeedbackSlider() {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    // pagination: {
-    //   el: '.swiper-pagination',
-    //   clickable: true,
-    //   bulletClass: 'custom-bullet',
-    //   bulletActiveClass: 'custom-bullet-active',
-    //   renderBullet: function (index, className) {
-    //     // Только 3 точки!
-    //     if (index > 2) return '';
-    //     return `<span class="${className}"></span>`;
-    //   },
-    // },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      bulletClass: 'custom-bullet',
+      bulletActiveClass: 'custom-bullet-active',
+      renderBullet: function (index, className) {
+        // Только 3 точки!
+        if (index > 2) return '';
+        return `<span class="${className}"></span>`;
+      },
+    },
     on: {
       slideChange: function () {
         const swiper = this;
