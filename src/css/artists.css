@@ -226,4 +226,20 @@
   .art-btn-loadMore {
     width: 170px;
   }
+
+    .art-main-title {
+      font-family: "Epilogue", sans-serif;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: #fff;
+
+        width: 524px;
+    }
+
+
+
+
 }
+
