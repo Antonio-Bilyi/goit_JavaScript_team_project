@@ -124,9 +124,10 @@
   animation: rotate 1s infinite;
   height: 50px;
   width: 50px;
-  position: fixed;
-  left: 50%;
-  top: 50%;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
 }
 
 .loader:before,
