@@ -12,7 +12,7 @@
 }
 
 .art-main-title {
-  font-family: 'Epilogue', sans-serif;
+  font-family: "Epilogue", sans-serif;
   font-weight: 700;
   font-size: 44px;
   line-height: 1.2;
@@ -124,9 +124,9 @@
   animation: rotate 1s infinite;
   height: 50px;
   width: 50px;
-  position: fixed;
+  position: relative;
   left: 50%;
-  top: 50%;
+  top: 50px;
 }
 
 .loader:before,
@@ -228,14 +228,19 @@
     width: 170px;
   }
 
-  .art-main-title {
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 700;
-    font-size: 60px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    color: #fff;
+    .art-main-title {
+      font-family: "Epilogue", sans-serif;
+        font-weight: 700;
+        font-size: 60px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: #fff;
 
-    width: 524px;
-  }
+        width: 524px;
+    }
+
+
+
+
 }
+
