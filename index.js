@@ -1,7 +1,7 @@
 import{a as b,S as M,N as E,P as S}from"./assets/vendor-CD5jJkp3.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))o(s);new MutationObserver(s=>{for(const n of s)if(n.type==="childList")for(const l of n.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&o(l)}).observe(document,{childList:!0,subtree:!0});function r(s){const n={};return s.integrity&&(n.integrity=s.integrity),s.referrerPolicy&&(n.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?n.credentials="include":s.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function o(s){if(s.ep)return;s.ep=!0;const n=r(s);fetch(s.href,n)}})();(()=>{const t={openModalBtn:document.querySelector("[data-menu-open]"),closeModalBtn:document.querySelector("[data-menu-close]"),modal:document.querySelector("[data-menu]"),menuLinks:document.querySelectorAll(".mob-menu-link")};t.openModalBtn.addEventListener("click",e),t.closeModalBtn.addEventListener("click",e),t.menuLinks.forEach(r=>{r.addEventListener("click",()=>{e()})});function e(){t.modal.classList.toggle("is-open"),t.modal.classList.contains("is-open")?document.body.classList.add("body-lock"):document.body.classList.remove("body-lock")}})();const B="https://sound-wave.b.goit.study/api";async function q(t){console.log("id:",t);try{return(await fetch(`${B}/artists/${t}`)).json()}catch(e){throw console.error("API Error:",e),e}}const f="/goit_JavaScript_team_project/assets/symbol-defs-D1hQFZbe.svg";function T(t,e){if(!t||typeof t!="object")return'<p class="error">No artist data available</p>';const r=t.intFormedYear?t.intDiedYear?`${t.intFormedYear} - ${t.intDiedYear}`:`${t.intFormedYear} - present`:"information missing",o=Array.isArray(e)?e:typeof e=="string"?e.split(",").map(a=>a.trim()):[];function s(a){if(!a||isNaN(a))return"N/A";const i=Math.floor(a/1e3),c=Math.floor(i/60),p=i%60;return`${c}:${p.toString().padStart(2,"0")}`}const n=o.length>0?`<ul class="genres-list-details">
         ${o.map(a=>`<li class="genres-item-details">${a}</li>`).join("")}
       </ul>`:"<p>Genres not specified</p>",l=a=>{const i=a.movie?`<a href="${a.movie}" target="_blank" rel="noopener noreferrer" aria-label="YouTube: ${a.strTrack}">
-            <svg width="16" height="16">
+            <svg width="24" height="24">
               <use href="${f}#icon-Youtube"></use>
             </svg>
          </a>`:"";return`
@@ -40,7 +40,7 @@ import{a as b,S as M,N as E,P as S}from"./assets/vendor-CD5jJkp3.js";(function()
           </li>`}).join("")}
     </ul>`}else d="<p>There are no albums</p>";return`<div class="modal">
     <button class="close-modal-btn" type="button">
-      <svg class="icon-close-btn" width="16" height="16">
+      <svg class="icon-close-btn" width="32" height="32">
         <use href="${f}#icon-close-btn"></use>
       </svg>
     </button>
